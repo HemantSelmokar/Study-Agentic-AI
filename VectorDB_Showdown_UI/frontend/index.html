@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAISS vs Chroma — Vector DB Showdown</title>
+<meta name="description" content="Lecture demo comparing FAISS and Chroma vector databases side by side, with OpenAI/Ollama toggle and live logs" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-base:      #0a0d14;
+    --bg-panel:     #111827;
+    --bg-card:      #1a2235;
+    --bg-input:     #151d2e;
+    --border:       rgba(99, 102, 241, 0.18);
+    --border-hover: rgba(99, 102, 241, 0.45);
+    --accent:       #6366f1;
+    --teal:         #06b6d4;
+    --emerald:      #10b981;
+    --rose:         #f43f5e;
+    --amber:        #f59e0b;
+    --faiss-color:  #38bdf8;
+    --chroma-color: #a78bfa;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted:   #475569;
+    --radius:       14px;
+    --radius-sm:    8px;
+    --transition:   0.2s ease;
+  }
+
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: relative; z-index: 10;
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 28px;
+    background: rgba(17, 24, 39, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .header-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--faiss-color), var(--chroma-color));
+    border-radius: 12px;
+    display: grid; place-items: center;
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(99,102,241,0.3);
+    flex-shrink: 0;
+  }
+
+  .header-text h1 {
+    font-size: 18px; font-weight: 700;
+    background: linear-gradient(135deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .header-text p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .header-controls {
+    margin-left: auto;
+    display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  }
+
+  .header-status { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--text-secondary); }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--text-muted);
+    transition: var(--transition);
+  }
+  .status-dot.ok { background: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
+  .status-dot.bad { background: var(--rose); box-shadow: 0 0 8px var(--rose); }
+
+  /* Provider toggle pills */
+  .provider-toggle {
+    display: flex; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 999px; padding: 3px; gap: 2px;
+  }
+  .provider-toggle button {
+    border: none; background: transparent; color: var(--text-secondary);
+    font-size: 12.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+    cursor: pointer; transition: var(--transition);
+  }
+  .provider-toggle button.active {
+    background: linear-gradient(135deg, var(--accent), var(--teal));
+    color: #fff;
+  }
+
+  main {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px 28px 40px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 980px) { main { grid-template-columns: 1fr; } }
+
+  /* ── Left control panel ─────────────────────────────── */
+  .panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: flex; flex-direction: column; gap: 16px;
+    height: fit-content;
+  }
+
+  .panel h2 {
+    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--text-secondary);
+  }
+
+  .case-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 12px; cursor: pointer; transition: var(--transition);
+  }
+  .case-card:hover { border-color: var(--border-hover); }
+  .case-card.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .case-card h3 { font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
+  .case-card p { font-size: 11.5px; color: var(--text-muted); line-height: 1.5; }
+
+  .field label { display: block; font-size: 11.5px; color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; }
+  textarea, select, input[type="text"] {
+    width: 100%; background: var(--bg-input); border: 1px solid var(--border); color: var(--text-primary);
+    border-radius: var(--radius-sm); padding: 9px 11px; font-family: inherit; font-size: 13px;
+    outline: none; transition: var(--transition);
+  }
+  textarea:focus, select:focus, input:focus { border-color: var(--border-hover); }
+  textarea { resize: vertical; min-height: 54px; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip {
+    padding: 5px 11px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+    font-size: 11px; color: var(--text-secondary); cursor: pointer; transition: var(--transition);
+  }
+  .chip:hover { border-color: var(--border-hover); color: var(--text-primary); }
+
+  .switch-row { display: flex; align-items: center; justify-content: space-between; }
+  .switch { position: relative; display: inline-block; width: 42px; height: 22px; flex-shrink: 0; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; cursor: pointer; inset: 0; background: #374151; transition: .3s; border-radius: 22px; border: 1px solid rgba(255,255,255,0.1); }
+  .slider:before { content: ""; position: absolute; height: 15px; width: 15px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s; }
+  input:checked + .slider { background: linear-gradient(135deg, var(--accent), var(--teal)); }
+  input:checked + .slider:before { transform: translateX(19px); }
+  .switch-row .disabled-note { font-size: 10.5px; color: var(--text-muted); }
+
+  button.action {
+    width: 100%; padding: 11px; border: none; border-radius: var(--radius-sm);
+    font-size: 13.5px; font-weight: 600; cursor: pointer; transition: var(--transition);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  button.action.primary { background: linear-gradient(135deg, var(--accent), var(--teal)); color: #fff; box-shadow: 0 4px 16px rgba(99,102,241,0.35); }
+  button.action.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,0.5); }
+  button.action.secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+  button.action.secondary:hover { border-color: var(--border-hover); }
+  button.action.danger { background: transparent; color: var(--rose); border: 1px solid rgba(244,63,94,0.35); }
+  button.action.danger:hover { background: rgba(244,63,94,0.1); border-color: var(--rose); }
+  button.action:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  /* ── Results area ───────────────────────────────────── */
+  .results-col { display: flex; flex-direction: column; gap: 20px; }
+
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .compare-grid { grid-template-columns: 1fr; } }
+
+  .engine-card {
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .engine-card.faiss { border-top: 3px solid var(--faiss-color); }
+  .engine-card.chroma { border-top: 3px solid var(--chroma-color); }
+
+  .engine-title { display: flex; align-items: center; justify-content: space-between; }
+  .engine-title h3 { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .engine-card.faiss h3 { color: var(--faiss-color); }
+  .engine-card.chroma h3 { color: var(--chroma-color); }
+  .latency-badge {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px;
+  }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stat-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 9px 11px; }
+  .stat-box .label { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.4px; }
+  .stat-box .value { font-size: 14px; font-weight: 700; margin-top: 2px; font-family: 'JetBrains Mono', monospace; }
+  .stat-box.full { grid-column: 1 / -1; }
+  .stat-box.full .value { font-size: 11.5px; font-weight: 500; font-family: 'Inter', sans-serif; color: var(--text-secondary); }
+
+  .result-item {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 10px 12px; font-size: 12.5px; line-height: 1.55;
+  }
+  .result-item .meta { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+  .badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+  .badge.score { background: rgba(99,102,241,0.15); color: #a5b4fc; }
+  .badge.cat { background: rgba(6,182,212,0.15); color: #67e8f9; }
+
+  .empty-state {
+    text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 13px;
+    background: var(--bg-panel); border: 1px dashed var(--border); border-radius: var(--radius);
+  }
+
+  /* ── Latency bar chart ──────────────────────────────── */
+  .latency-compare {
+    background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px;
+  }
+  .latency-compare h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .bar-row .bar-label { width: 64px; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--bg-card); border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; min-width: 2px; }
+  .bar-fill.faiss { background: linear-gradient(90deg, #0284c7, var(--faiss-color)); }
+  .bar-fill.chroma { background: linear-gradient(90deg, #7c3aed, var(--chroma-color)); }
+  .bar-row .bar-value {
+    width: 84px; flex-shrink: 0; text-align: right;
+    font-size: 11.5px; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text-primary);
+  }
+  .verdict { margin-top: 10px; font-size: 12px; color: var(--text-secondary); }
+  .verdict strong { color: var(--text-primary); }
+
+  /* ── Log panel ──────────────────────────────────────── */
+  .log-panel {
+    background: #05070c; border: 1px solid var(--border); border-radius: var(--radius);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .log-panel-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--bg-panel);
+  }
+  .log-panel-header h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); }
+  .log-panel-header .path { font-size: 10.5px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+  .log-toggle-btn {
+    background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary);
+    padding: 5px 12px; border-radius: 6px; font-size: 11.5px; cursor: pointer;
+  }
+  #log-body {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.65;
+    padding: 12px 16px; max-height: 260px; overflow-y: auto; color: #9ca3af;
+    white-space: pre-wrap; word-break: break-all;
+  }
+  #log-body .lvl-INFO { color: #67e8f9; }
+  #log-body .lvl-DEBUG { color: #6b7280; }
+  #log-body .lvl-ERROR, #log-body .lvl-CRITICAL { color: #fb7185; }
+  #log-body .lvl-WARNING { color: #fbbf24; }
+  #log-body::-webkit-scrollbar { width: 6px; }
+  #log-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+  #error-toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: rgba(30, 41, 59, 0.95); border: 1px solid var(--border); color: var(--text-primary);
+    padding: 12px 22px; border-radius: 12px; font-size: 13px; font-weight: 500;
+    opacity: 0; transition: all 0.3s ease; pointer-events: none; z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 80vw;
+  }
+  #error-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .spinner {
+    width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff;
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-icon">🥊</div>
+  <div class="header-text">
+    <h1>FAISS vs Chroma — Vector DB Showdown</h1>
+    <p>Same documents, same embeddings, two engines — build, query, and compare live</p>
+  </div>
+  <div class="header-controls">
+    <div class="provider-toggle" id="provider-toggle">
+      <button data-provider="ollama" id="btn-ollama">🦙 Ollama</button>
+      <button data-provider="openai" id="btn-openai">🔑 OpenAI</button>
+    </div>
+    <div class="header-status">
+      <div class="status-dot" id="status-dot"></div>
+      <span id="status-text">Checking server…</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ── Left control panel ── -->
+  <div class="panel">
+    <div>
+      <h2>Case Study</h2>
+      <div id="case-list" style="display:flex; flex-direction:column; gap:8px; margin-top:10px;"></div>
+    </div>
+
+    <div class="field">
+      <label for="query-input">Query</label>
+      <textarea id="query-input" placeholder="Type a question, or pick a sample below…"></textarea>
+      <div class="chip-row" id="sample-chips"></div>
+    </div>
+
+    <div class="field">
+      <label for="k-select">Top-K results</label>
+      <select id="k-select">
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="switch-row">
+      <div>
+        <div style="font-size:13px; font-weight:600;">Metadata filter</div>
+        <div class="disabled-note" id="filter-note">Not available for this case study</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="filter-toggle" disabled onchange="state.useFilter=this.checked">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <button class="action secondary" id="build-btn" onclick="buildIndexes(true)">🔨 (Re)build indexes</button>
+    <button class="action primary" id="query-btn" onclick="runQuery()">▶ Run comparison query</button>
+    <button class="action danger" id="clear-btn" onclick="clearIndexes()">🗑 Clear all indexes</button>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-col">
+    <div class="compare-grid" id="compare-grid">
+      <div class="empty-state" style="grid-column: 1 / -1;">
+        Pick a case study and click <strong>Run comparison query</strong> to build both indexes and see FAISS vs Chroma side by side.
+      </div>
+    </div>
+
+    <div class="latency-compare" id="latency-compare" style="display:none;">
+      <h3>Query latency</h3>
+      <div class="bar-row">
+        <div class="bar-label" style="color:var(--faiss-color)">FAISS</div>
+        <div class="bar-track"><div class="bar-fill faiss" id="bar-faiss" style="width:0%"></div></div>
+        <div class="bar-value" id="bar-faiss-label"></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label" style="color:var(--chroma-color)">Chroma</div>
+        <div class="bar-track"><div class="bar-fill chroma" id="bar-chroma" style="width:0%"></div></div>
+        <div class="bar-value" id="bar-chroma-label"></div>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <div class="log-panel">
+      <div class="log-panel-header">
+        <h3>📜 Live engine log</h3>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="path" id="log-path"></span>
+          <button class="log-toggle-btn" onclick="toggleLogPolling()" id="log-toggle-btn">Pause</button>
+        </div>
+      </div>
+      <div id="log-body">Waiting for server…</div>
+    </div>
+  </div>
+</main>
+
+<div id="error-toast"></div>
+
+<script>
+const BASE_URL = 'http://localhost:8010';
+
+const state = {
+  provider: 'ollama',
+  caseStudy: null,
+  caseStudies: {},
+  useFilter: false,
+  logPolling: true,
+};
+
+const el = (id) => document.getElementById(id);
+const statusDot = el('status-dot'), statusText = el('status-text');
+const errorToast = el('error-toast');
+
+function showToast(msg) {
+  errorToast.textContent = msg;
+  errorToast.classList.add('show');
+  setTimeout(() => errorToast.classList.remove('show'), 4500);
+}
+
+function setBusy(busy) {
+  el('query-btn').disabled = busy;
+  el('build-btn').disabled = busy;
+  el('clear-btn').disabled = busy;
+  el('query-btn').innerHTML = busy ? '<span class="spinner"></span> Running…' : '▶ Run comparison query';
+}
+
+// ── Provider toggle ──────────────────────────────────────
+function setProvider(p) {
+  state.provider = p;
+  el('btn-ollama').classList.toggle('active', p === 'ollama');
+  el('btn-openai').classList.toggle('active', p === 'openai');
+}
+el('btn-ollama').onclick = () => setProvider('ollama');
+el('btn-openai').onclick = () => setProvider('openai');
+
+// ── Health check ─────────────────────────────────────────
+async function checkHealth() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/health`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    statusDot.className = 'status-dot ok';
+    statusText.textContent = 'Engine online';
+    setProvider(data.default_provider);
+    return true;
+  } catch {
+    statusDot.className = 'status-dot bad';
+    statusText.textContent = 'Server offline — run uvicorn server:app --port 8010';
+    return false;
+  }
+}
+
+// ── Load case studies ────────────────────────────────────
+async function loadCaseStudies() {
+  const res = await fetch(`${BASE_URL}/api/case-studies`);
+  state.caseStudies = await res.json();
+  const list = el('case-list');
+  list.innerHTML = '';
+  const ids = Object.keys(state.caseStudies);
+  ids.forEach((id, idx) => {
+    const meta = state.caseStudies[id];
+    const card = document.createElement('div');
+    card.className = 'case-card' + (idx === 0 ? ' selected' : '');
+    card.dataset.id = id;
+    card.innerHTML = `<h3>${meta.name}</h3><p>${meta.description}</p>`;
+    card.onclick = () => selectCaseStudy(id);
+    list.appendChild(card);
+  });
+  if (ids.length) selectCaseStudy(ids[0]);
+}
+
+function selectCaseStudy(id) {
+  state.caseStudy = id;
+  document.querySelectorAll('.case-card').forEach(c => c.classList.toggle('selected', c.dataset.id === id));
+
+  const meta = state.caseStudies[id];
+  const chipRow = el('sample-chips');
+  chipRow.innerHTML = '';
+  meta.sample_queries.forEach(q => {
+    const chip = document.createElement('div');
+    chip.className = 'chip';
+    chip.textContent = q;
+    chip.onclick = () => { el('query-input').value = q; };
+    chipRow.appendChild(chip);
+  });
+  el('query-input').value = meta.sample_queries[0] || '';
+
+  const filterToggle = el('filter-toggle');
+  const filterNote = el('filter-note');
+  if (meta.filter_demo) {
+    filterToggle.disabled = false;
+    filterNote.textContent = `Filters to ${meta.filter_demo.field}=${meta.filter_demo.value}`;
+  } else {
+    filterToggle.disabled = true;
+    filterToggle.checked = false;
+    state.useFilter = false;
+    filterNote.textContent = 'Not available for this case study';
+  }
+}
+
+// ── Build indexes only ───────────────────────────────────
+async function buildIndexes(forceRebuild) {
+  if (!state.caseStudy) return;
+  setBusy(true);
+  try {
+    const res = await fetch(`${BASE_URL}/api/build`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ case_study: state.caseStudy, provider: state.provider, force_rebuild: forceRebuild }),
+    });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Build failed'); }
+    const data = await res.json();
+    renderStatsOnly(data.faiss, data.chroma);
+    showToast('✅ Indexes built for both engines');
+  } catch (err) {
+    showToast(`⚠️ ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+// ── Clear all persisted indexes ───────────────────────────
+async function clearIndexes() {
+  const ok = confirm(
+    'Delete ALL persisted FAISS + Chroma stores on disk (every case study, every provider) ' +
+    'and drop the in-memory build cache?\n\nThe next build/query will start completely fresh.'
+  );
+  if (!ok) return;
+
+  setBusy(true);
+  try {
+    const res = await fetch(`${BASE_URL}/api/clear`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({}),
+    });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Clear failed'); }
+    const data = await res.json();
+    el('compare-grid').innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">
+      🗑 Cleared ${data.count} persisted store${data.count === 1 ? '' : 's'}. Pick a case study and click
+      <strong>Run comparison query</strong> to rebuild from scratch.
+    </div>`;
+    el('latency-compare').style.display = 'none';
+    showToast(`🗑️ Cleared ${data.count} persisted store(s)`);
+  } catch (err) {
+    showToast(`⚠️ ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+// ── Run full comparison query ─────────────────────────────
+async function runQuery() {
+  const query = el('query-input').value.trim();
+  if (!state.caseStudy) { showToast('⚠️ Pick a case study first'); return; }
+  if (!query) { showToast('⚠️ Type a query first'); return; }
+
+  setBusy(true);
+  try {
+    const res = await fetch(`${BASE_URL}/api/query`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        case_study: state.caseStudy,
+        query,
+        provider: state.provider,
+        k: parseInt(el('k-select').value, 10),
+        use_filter: state.useFilter,
+      }),
+    });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.detail || 'Query failed'); }
+    const data = await res.json();
+    renderComparison(data);
+  } catch (err) {
+    showToast(`⚠️ ${err.message}`);
+  } finally {
+    setBusy(false);
+  }
+}
+
+function engineCardHTML(key, label, colorClass, data) {
+  const results = data.results.map(r => {
+    const catBadge = r.metadata && r.metadata.category
+      ? `<span class="badge cat">${r.metadata.category}${r.metadata.priority ? ' · ' + r.metadata.priority : ''}</span>` : '';
+    return `<div class="result-item">
+      <div class="meta"><span class="badge score">score ${r.score.toFixed(3)}</span>${catBadge}</div>
+      ${r.text}
+    </div>`;
+  }).join('') || '<div class="result-item">No matching results.</div>';
+
+  return `
+    <div class="engine-card ${colorClass}">
+      <div class="engine-title">
+        <h3>${label}</h3>
+        <span class="latency-badge">${data.latency_ms} ms</span>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="label">Build time</div><div class="value">${data.build_time_s}s</div></div>
+        <div class="stat-box"><div class="label">Disk size</div><div class="value">${data.disk_size_kb} KB</div></div>
+        <div class="stat-box"><div class="label">Vectors</div><div class="value">${data.doc_count}</div></div>
+        <div class="stat-box"><div class="label">Native filter</div><div class="value">${data.supports_native_metadata_filter ? 'Yes' : 'No'}</div></div>
+        <div class="stat-box full"><div class="label">Persistence</div><div class="value">${data.persistence}</div></div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">${results}</div>
+    </div>`;
+}
+
+function renderStatsOnly(faiss, chroma) {
+  el('compare-grid').innerHTML =
+    engineCardHTML('faiss', 'FAISS', 'faiss', { ...faiss, results: [], latency_ms: '—' }) +
+    engineCardHTML('chroma', 'Chroma', 'chroma', { ...chroma, results: [], latency_ms: '—' });
+}
+
+function renderComparison(data) {
+  el('compare-grid').innerHTML =
+    engineCardHTML('faiss', 'FAISS', 'faiss', data.faiss) +
+    engineCardHTML('chroma', 'Chroma', 'chroma', data.chroma);
+
+  const fLat = data.faiss.latency_ms, cLat = data.chroma.latency_ms;
+  const maxLat = Math.max(fLat, cLat, 1);
+  el('latency-compare').style.display = 'block';
+  el('bar-faiss').style.width = `${(fLat / maxLat) * 100}%`;
+  el('bar-faiss-label').textContent = `${fLat} ms`;
+  el('bar-chroma').style.width = `${(cLat / maxLat) * 100}%`;
+  el('bar-chroma-label').textContent = `${cLat} ms`;
+
+  const ratio = data.faiss_vs_chroma_latency_ratio;
+  const filterNote = data.metadata_filter_applied
+    ? ` · metadata filter <strong>${data.metadata_filter_applied[0]}=${data.metadata_filter_applied[1]}</strong> applied (native on Chroma, manual post-filter on FAISS)`
+    : '';
+  el('verdict').innerHTML = ratio
+    ? `FAISS was <strong>${ratio}x</strong> the speed of Chroma on this query.${filterNote}`
+    : `Timing inconclusive on this query.${filterNote}`;
+}
+
+// ── Live log tail ─────────────────────────────────────────
+function fmtLogLine(line) {
+  const escaped = line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const match = line.match(/\[(DEBUG|INFO|WARNING|ERROR|CRITICAL)\s*\]/);
+  const lvl = match ? match[1] : null;
+  return lvl ? `<div class="lvl-${lvl}">${escaped}</div>` : `<div>${escaped}</div>`;
+}
+
+async function pollLogs() {
+  if (!state.logPolling) return;
+  try {
+    const res = await fetch(`${BASE_URL}/api/logs/latest?lines=80`);
+    if (!res.ok) return;
+    const data = await res.json();
+    el('log-path').textContent = data.path || '';
+    const body = el('log-body');
+    const wasAtBottom = body.scrollTop + body.clientHeight >= body.scrollHeight - 20;
+    body.innerHTML = data.lines.map(fmtLogLine).join('');
+    if (wasAtBottom) body.scrollTop = body.scrollHeight;
+  } catch { /* server offline — health check will surface this */ }
+}
+
+function toggleLogPolling() {
+  state.logPolling = !state.logPolling;
+  el('log-toggle-btn').textContent = state.logPolling ? 'Pause' : 'Resume';
+}
+
+// ── Boot ──────────────────────────────────────────────────
+(async function init() {
+  await checkHealth();
+  await loadCaseStudies();
+  pollLogs();
+  setInterval(checkHealth, 10000);
+  setInterval(pollLogs, 3000);
+})();
+</script>
+</body>
+</html>

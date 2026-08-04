@@ -1,0 +1,156 @@
+2026-08-03 22:35:49  [INFO    ]  vdb_ui.api           │ ======================================================================
+2026-08-03 22:35:49  [INFO    ]  vdb_ui.api           │ Vector DB Showdown UI — starting up
+2026-08-03 22:35:49  [INFO    ]  vdb_ui.api           │ Engine dir     : C:\AI Agent study\VectorDB_Showdown
+2026-08-03 22:35:49  [INFO    ]  vdb_ui.api           │ Engine log file: C:\AI Agent study\VectorDB_Showdown\logs\vectordb_showdown_2026-08-03.log
+2026-08-03 22:35:49  [INFO    ]  vdb_ui.api           │ ======================================================================
+INFO:     Started server process [27516]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8010 (Press CTRL+C to quit)
+2026-08-03 22:35:51  [INFO    ]  vdb_ui.api           │ → GET /api/health
+2026-08-03 22:35:51  [INFO    ]  vdb_ui.api           │ ← GET /api/health → 200 (11.2 ms)
+INFO:     127.0.0.1:63746 - "GET /api/health HTTP/1.1" 200 OK
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ → GET /api/health
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ ← GET /api/health → 200 (2.7 ms)
+INFO:     127.0.0.1:59443 - "GET /api/health HTTP/1.1" 200 OK
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ → GET /api/case-studies
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ ← GET /api/case-studies → 200 (3.7 ms)
+INFO:     127.0.0.1:59443 - "GET /api/case-studies HTTP/1.1" 200 OK
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:05  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (6.8 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:07  [INFO    ]  vdb_ui.api           │ → OPTIONS /api/query
+2026-08-03 22:36:07  [INFO    ]  vdb_ui.api           │ ← OPTIONS /api/query → 200 (1.2 ms)
+INFO:     127.0.0.1:59443 - "OPTIONS /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:07  [INFO    ]  vdb_ui.api           │ → POST /api/query
+2026-08-03 22:36:08  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:08  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (5.0 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:09  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 2.007s
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=customer_support | provider=ollama
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ Loaded 16 document chunk(s) for case study 'customer_support'
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:11  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:11  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (5.4 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:14  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:14  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (9.1 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:15  [INFO    ]  vdb_ui.api           │ → GET /api/health
+2026-08-03 22:36:15  [INFO    ]  vdb_ui.api           │ ← GET /api/health → 200 (3.6 ms)
+INFO:     127.0.0.1:59443 - "GET /api/health HTTP/1.1" 200 OK
+2026-08-03 22:36:15  [INFO    ]  vdb.faiss                │ Index built in 5.905s for 16 vectors (369.1 ms/vector)
+2026-08-03 22:36:15  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\customer_support_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ Cleared previous persisted collection at C:\AI Agent study\VectorDB_Showdown\chroma_store\customer_support_ollama
+2026-08-03 22:36:17  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:17  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (8.2 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Collection built in 3.831s for 16 vectors (239.4 ms/vector)
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\customer_support_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 5.9053s / 52.54 KB  |  Chroma: 3.8306s / 614.16 KB
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=None
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:19  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — no metadata filter requested
+2026-08-03 22:36:19  [INFO    ]  vdb.faiss                │ Query done in 137.3 ms — 3 result(s) returned
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter=None
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Query done in 140.9 ms — 3 result(s) returned
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ RESULT — FAISS 137.28 ms vs Chroma 140.89 ms (FAISS is 1.03x the speed of Chroma)
+2026-08-03 22:36:19  [INFO    ]  vdb_ui.api           │ ← POST /api/query → 200 (12370.9 ms)
+INFO:     127.0.0.1:57662 - "POST /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:20  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:20  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (11.4 ms)
+INFO:     127.0.0.1:57662 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:20  [INFO    ]  vdb_ui.api           │ → OPTIONS /api/query
+2026-08-03 22:36:20  [INFO    ]  vdb_ui.api           │ ← OPTIONS /api/query → 200 (1.1 ms)
+INFO:     127.0.0.1:57662 - "OPTIONS /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:20  [INFO    ]  vdb_ui.api           │ → POST /api/query
+2026-08-03 22:36:20  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.041s
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('customer_support', 'ollama')
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=('category', 'Billing')
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:20  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — metadata_filter=('category', 'Billing') — FAISS has NO native filter, so we over-fetch then filter in Python
+2026-08-03 22:36:21  [INFO    ]  vdb.faiss                │ Query done in 175.5 ms — 3 result(s) returned
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 22:36:21  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter={'category': 'Billing'}
+2026-08-03 22:36:21  [INFO    ]  vdb.chroma               │ Query done in 138.9 ms — 3 result(s) returned
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 22:36:21  [INFO    ]  vdb.compare              │ RESULT — FAISS 175.51 ms vs Chroma 138.92 ms (FAISS is 0.79x the speed of Chroma)
+2026-08-03 22:36:21  [INFO    ]  vdb_ui.api           │ ← POST /api/query → 200 (370.6 ms)
+INFO:     127.0.0.1:59443 - "POST /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:23  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:23  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (5.2 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:24  [INFO    ]  vdb_ui.api           │ → OPTIONS /api/query
+2026-08-03 22:36:24  [INFO    ]  vdb_ui.api           │ ← OPTIONS /api/query → 200 (1.3 ms)
+INFO:     127.0.0.1:59443 - "OPTIONS /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:24  [INFO    ]  vdb_ui.api           │ → POST /api/query
+2026-08-03 22:36:24  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.046s
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=campus_policy | provider=ollama
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ Loaded 25 document chunk(s) for case study 'campus_policy'
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:25  [INFO    ]  vdb_ui.api           │ → GET /api/health
+2026-08-03 22:36:25  [INFO    ]  vdb_ui.api           │ ← GET /api/health → 200 (2.6 ms)
+INFO:     127.0.0.1:59443 - "GET /api/health HTTP/1.1" 200 OK
+2026-08-03 22:36:26  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:26  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (4.9 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:29  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:29  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (4.8 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:30  [INFO    ]  vdb.faiss                │ Index built in 5.651s for 25 vectors (226.1 ms/vector)
+2026-08-03 22:36:30  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\campus_policy_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ Cleared previous persisted collection at C:\AI Agent study\VectorDB_Showdown\chroma_store\campus_policy_ollama
+2026-08-03 22:36:32  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:32  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (10.9 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Collection built in 3.789s for 25 vectors (151.6 ms/vector)
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\campus_policy_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 5.6513s / 83.01 KB  |  Chroma: 3.7893s / 658.16 KB
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │   QUERY — 'What is the minimum attendance requirement?' | case_study=campus_policy | filter=None
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:34  [INFO    ]  vdb.faiss                │ Query: 'What is the minimum attendance requirement?' (k=3) — no metadata filter requested
+2026-08-03 22:36:34  [INFO    ]  vdb.faiss                │ Query done in 159.9 ms — 3 result(s) returned
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Query: 'What is the minimum attendance requirement?' (k=3) — native `where` filter=None
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Query done in 328.1 ms — 3 result(s) returned
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ RESULT — FAISS 159.91 ms vs Chroma 328.06 ms (FAISS is 2.05x the speed of Chroma)
+2026-08-03 22:36:34  [INFO    ]  vdb_ui.api           │ ← POST /api/query → 200 (10034.6 ms)
+INFO:     127.0.0.1:57662 - "POST /api/query HTTP/1.1" 200 OK
+2026-08-03 22:36:35  [INFO    ]  vdb_ui.api           │ → GET /api/health
+2026-08-03 22:36:35  [INFO    ]  vdb_ui.api           │ → GET /api/logs/latest
+2026-08-03 22:36:35  [INFO    ]  vdb_ui.api           │ ← GET /api/health → 200 (6.1 ms)
+INFO:     127.0.0.1:57662 - "GET /api/health HTTP/1.1" 200 OK
+2026-08-03 22:36:35  [INFO    ]  vdb_ui.api           │ ← GET /api/logs/latest → 200 (7.6 ms)
+INFO:     127.0.0.1:59443 - "GET /api/logs/latest?lines=80 HTTP/1.1" 200 OK

@@ -1,0 +1,6 @@
+# Vector DB Showdown UI — backend-only deps.
+# The vector DB / embedding libraries themselves are installed via
+# ..\VectorDB_Showdown\requirements.txt (this UI imports that engine directly).
+fastapi
+uvicorn
+python-dotenv

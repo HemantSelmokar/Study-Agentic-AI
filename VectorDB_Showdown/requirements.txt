@@ -1,0 +1,13 @@
+# FAISS vs Chroma lecture demo — program folder dependencies.
+# The shared venv at c:\AI Agent study\venv already has most of these;
+# run: ..\venv\Scripts\pip install -r requirements.txt to fill any gaps.
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langchain-openai
+langchain-ollama
+faiss-cpu
+chromadb
+python-dotenv
+rich

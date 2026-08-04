@@ -1,0 +1,1612 @@
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │   🚀 LangChain RAG AI Agent Server — Initialising
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │   📁 Log file: C:\AI Agent study\my_agent\LangChain_AI_Agent\logs\rag_agent_2026-07-29.log
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │ Importing LangChain modules...
+2026-07-29 14:35:30  [INFO    ]  rag_server                   │    Model provider selected: OPENAI
+2026-07-29 14:35:33  [CRITICAL]  rag_server                   │ ❌ LangChain dependency missing: No module named 'langchain_openai'
+2026-07-29 14:35:33  [CRITICAL]  rag_server                   │ Run: pip install langchain langchain-community langchain-core langchain-openai chromadb pypdf fastapi uvicorn
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │   🚀 LangChain RAG AI Agent Server — Initialising
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │   📁 Log file: C:\AI Agent study\my_agent\LangChain_AI_Agent\logs\rag_agent_2026-07-29.log
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │ Importing LangChain modules...
+2026-07-29 16:15:53  [INFO    ]  rag_server                   │    Model provider selected: OLLAMA
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ ✅ Ollama LangChain modules imported (langchain-ollama).
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ ✅ All LangChain core modules imported successfully.
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ 🛠️  Instantiating RAGManager...
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │ 🔧 [RAGManager.__init__] Initialising LangChain RAG Manager
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │    📂 ChromaDB persist directory : C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:15:56  [INFO    ]  rag_server                   │    🔁 RAG enabled                : True
+2026-07-29 16:15:56  [INFO    ]  rag_server.embedding         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:56  [INFO    ]  rag_server.embedding         │ 🔌 [_init_embeddings] Provider = OLLAMA
+2026-07-29 16:15:56  [INFO    ]  rag_server.embedding         │    Model  : nomic-embed-text
+2026-07-29 16:15:56  [INFO    ]  rag_server.embedding         │    Host   : http://localhost:11434
+2026-07-29 16:15:56  [INFO    ]  rag_server.embedding         │ ✅ OllamaEmbeddings (nomic-embed-text) initialised in 0.015s
+2026-07-29 16:15:56  [INFO    ]  rag_server.vectorstore       │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:56  [INFO    ]  rag_server.vectorstore       │ 🗄️  [_init_vectorstore] Loading/creating ChromaDB VectorStore...
+2026-07-29 16:15:56  [INFO    ]  rag_server.vectorstore       │    Collection : pdf_knowledge_base
+2026-07-29 16:15:56  [INFO    ]  rag_server.vectorstore       │    Persist dir: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ ✅ ChromaDB connected in 2.688s
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    📊 Existing chunks in collection: 27
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    🔍 Retriever activated (MMR, top-k=8, fetch_k=20)
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ 🤖 [ChatOllama] Initialising local Ollama LLM...
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │    Model       : gemma4:31b-cloud
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │    Temperature : 0.2
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │    Host        : http://localhost:11434
+2026-07-29 16:15:59  [INFO    ]  rag_server.llm               │ ✅ ChatOllama (gemma4:31b-cloud) instance ready.
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ✅ LangChain LCEL RAG chain & general chain compiled.
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ 🟢 FastAPI application STARTED
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │    Docs available at : http://localhost:8000/docs
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │    Log file          : C:\AI Agent study\my_agent\LangChain_AI_Agent\logs\rag_agent_2026-07-29.log
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → OPTIONS /api/rag/documents
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← OPTIONS /api/rag/documents → 200 (2.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → OPTIONS /api/rag/documents
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← OPTIONS /api/rag/documents → 200 (0.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.4 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.8 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (8.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.4 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (7.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.8 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.8 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.8 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → DELETE /api/rag/documents
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → DELETE /api/rag/documents
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 27 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🧹 Clear all documents requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ 🧹 [clear_all] Clearing ChromaDB vector store and file list...
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🧹 Clear all documents requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    ChromaDB collection deleted.
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ 🧹 [clear_all] Clearing ChromaDB vector store and file list...
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (18.7 ms)
+2026-07-29 16:15:59  [ERROR   ]  rag_server                   │ ❌ Error during clear: Collection [2018e50a-e1e9-477e-aa5c-882b655c1cff] does not exist.
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ 🗄️  [_init_vectorstore] Loading/creating ChromaDB VectorStore...
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    Collection : pdf_knowledge_base
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (20.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    Persist dir: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ ✅ ChromaDB connected in 0.010s
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    📊 Existing chunks in collection: 0
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    ℹ️  Collection is empty — retriever will activate after first PDF upload.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ✅ Knowledge base cleared and VectorStore re-initialised.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← DELETE /api/rag/documents → 200 (33.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    Persist directory removed: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ ────────────────────────────────────────────────────────────
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ 🗄️  [_init_vectorstore] Loading/creating ChromaDB VectorStore...
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    Collection : pdf_knowledge_base
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    Persist dir: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │ ✅ ChromaDB connected in 0.005s
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    📊 Existing chunks in collection: 0
+2026-07-29 16:15:59  [INFO    ]  rag_server.vectorstore       │    ℹ️  Collection is empty — retriever will activate after first PDF upload.
+2026-07-29 16:15:59  [INFO    ]  rag_server                   │ ✅ Knowledge base cleared and VectorStore re-initialised.
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← DELETE /api/rag/documents → 200 (45.1 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.5 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.4 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.5 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.9 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.4 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.4 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.5 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.6 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.2 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.3 ms)
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:15:59  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:16:05  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.5 ms)
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:16:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.4 ms)
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │   🚀 LangChain RAG AI Agent Server — Initialising
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │   📁 Log file: C:\AI Agent study\my_agent\LangChain_AI_Agent\logs\rag_agent_2026-07-29.log
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ Importing LangChain modules...
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │    Model provider selected: OLLAMA
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ✅ Ollama LangChain modules imported (langchain-ollama).
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ✅ All LangChain core modules imported successfully.
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ 🛠️  Instantiating RAGManager...
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │ 🔧 [RAGManager.__init__] Initialising LangChain RAG Manager
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │    📂 ChromaDB persist directory : C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:16:43  [INFO    ]  rag_server                   │    🔁 RAG enabled                : True
+2026-07-29 16:16:43  [INFO    ]  rag_server.embedding         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:43  [INFO    ]  rag_server.embedding         │ 🔌 [_init_embeddings] Provider = OLLAMA
+2026-07-29 16:16:43  [INFO    ]  rag_server.embedding         │    Model  : nomic-embed-text
+2026-07-29 16:16:43  [INFO    ]  rag_server.embedding         │    Host   : http://localhost:11434
+2026-07-29 16:16:43  [INFO    ]  rag_server.embedding         │ ✅ OllamaEmbeddings (nomic-embed-text) initialised in 0.017s
+2026-07-29 16:16:43  [INFO    ]  rag_server.vectorstore       │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:43  [INFO    ]  rag_server.vectorstore       │ 🗄️  [_init_vectorstore] Loading/creating ChromaDB VectorStore...
+2026-07-29 16:16:43  [INFO    ]  rag_server.vectorstore       │    Collection : pdf_knowledge_base
+2026-07-29 16:16:43  [INFO    ]  rag_server.vectorstore       │    Persist dir: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:16:44  [INFO    ]  rag_server.vectorstore       │ ✅ ChromaDB connected in 0.550s
+2026-07-29 16:16:44  [INFO    ]  rag_server.vectorstore       │    📊 Existing chunks in collection: 0
+2026-07-29 16:16:44  [INFO    ]  rag_server.vectorstore       │    ℹ️  Collection is empty — retriever will activate after first PDF upload.
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ 🤖 [ChatOllama] Initialising local Ollama LLM...
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │    Model       : gemma4:31b-cloud
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │    Temperature : 0.2
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │    Host        : http://localhost:11434
+2026-07-29 16:16:44  [INFO    ]  rag_server.llm               │ ✅ ChatOllama (gemma4:31b-cloud) instance ready.
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ ✅ LangChain LCEL RAG chain & general chain compiled.
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ 🟢 FastAPI application STARTED
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │    Docs available at : http://localhost:8000/docs
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │    Log file          : C:\AI Agent study\my_agent\LangChain_AI_Agent\logs\rag_agent_2026-07-29.log
+2026-07-29 16:16:44  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:16:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.2 ms)
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:16:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.7 ms)
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ → OPTIONS /api/rag/documents
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ ← OPTIONS /api/rag/documents → 200 (1.3 ms)
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ → DELETE /api/rag/documents
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ 🧹 Clear all documents requested.
+2026-07-29 16:17:02  [INFO    ]  rag_server                   │ 🧹 [clear_all] Clearing ChromaDB vector store and file list...
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │    Persist directory removed: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │ ────────────────────────────────────────────────────────────
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │ 🗄️  [_init_vectorstore] Loading/creating ChromaDB VectorStore...
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │    Collection : pdf_knowledge_base
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │    Persist dir: C:\AI Agent study\my_agent\LangChain_AI_Agent\chroma_db_langchain
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │ ✅ ChromaDB connected in 0.011s
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │    📊 Existing chunks in collection: 0
+2026-07-29 16:17:02  [INFO    ]  rag_server.vectorstore       │    ℹ️  Collection is empty — retriever will activate after first PDF upload.
+2026-07-29 16:17:02  [INFO    ]  rag_server                   │ ✅ Knowledge base cleared and VectorStore re-initialised.
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ ← DELETE /api/rag/documents → 200 (30.7 ms)
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:02  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.9 ms)
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.1 ms)
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.5 ms)
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.6 ms)
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.5 ms)
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.7 ms)
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.4 ms)
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.4 ms)
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:17:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (6.2 ms)
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.3 ms)
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:18:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (6.0 ms)
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.1 ms)
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 0 files | 0 chunks | enabled=True
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.7 ms)
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ → POST /api/upload-pdf
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │ 📥 Upload received: filename='MMJSDataPhi-India-POSH Policy v1 1.pdf' content_type='application/pdf'
+2026-07-29 16:18:13  [INFO    ]  rag_server.api               │    Bytes read: 198,138
+2026-07-29 16:18:13  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:18:13  [INFO    ]  rag_server                   │ 📄 [add_pdf_document] Processing upload: 'MMJSDataPhi-India-POSH Policy v1 1.pdf'
+2026-07-29 16:18:13  [INFO    ]  rag_server                   │    File size: 198,138 bytes
+2026-07-29 16:18:13  [INFO    ]  rag_server                   │    📑 File extension detected: '.pdf'
+2026-07-29 16:18:13  [INFO    ]  rag_server                   │    🔍 Method: pypdf.PdfReader — extracting text from PDF pages...
+2026-07-29 16:18:14  [INFO    ]  rag_server                   │    📖 Total pages found: 13
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   1:    807 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   2:   3345 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   3:    815 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   4:   1583 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   5:   1961 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   6:   2179 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   7:   1933 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   8:   1824 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page   9:   1749 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page  10:    547 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page  11:    797 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page  12:    803 chars extracted
+2026-07-29 16:18:14  [DEBUG   ]  rag_server                   │       Page  13:    591 chars extracted
+2026-07-29 16:18:14  [INFO    ]  rag_server                   │    ✅ PDF parsed in 1.094s — total chars: 19,153
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │ ────────────────────────────────────────────────────────────
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │ ✂️  [RecursiveCharacterTextSplitter] Starting chunking...
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    chunk_size    : 900 chars  (increased for richer context per chunk)
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    chunk_overlap : 120 chars  (increased to preserve cross-boundary context)
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    separators    : ['\n\n', '\n', ' ', '']
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │ ✅ Chunking complete in 0.001s
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    Total chunks produced    : 27
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    Avg chunk size           : 738 chars
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    Total chars in document  : 19,153
+2026-07-29 16:18:14  [INFO    ]  rag_server.chunking          │    Coverage per top-8 chunks: ~37% of document
+2026-07-29 16:18:14  [DEBUG   ]  rag_server.chunking          │    [Chunk #1] 816 chars | [Page 1] This document is controlled by the Human Capital Department. Copies not…
+2026-07-29 16:18:14  [DEBUG   ]  rag_server.chunking          │    [Chunk #2] 780 chars | [Page 2] Version 1.0  MMJS/DataPhi/India/POL6/25/V1   Prevention of Sexual Haras…
+2026-07-29 16:18:14  [DEBUG   ]  rag_server.chunking          │    [Chunk #3] 893 chars | 2.2. Scope ................................ ................................ ...…
+2026-07-29 16:18:14  [DEBUG   ]  rag_server.chunking          │    ... and 24 more chunks (enable DEBUG to see all)
+2026-07-29 16:18:14  [INFO    ]  rag_server.embedding         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:18:14  [INFO    ]  rag_server.embedding         │ 🧠 [OllamaEmbeddings] Generating embeddings & indexing into ChromaDB...
+2026-07-29 16:18:14  [INFO    ]  rag_server.embedding         │    Embedding model : nomic-embed-text
+2026-07-29 16:18:14  [INFO    ]  rag_server.embedding         │    Chunks to embed : 27
+2026-07-29 16:18:14  [INFO    ]  rag_server.embedding         │    ➕ Existing collection — calling vectorstore.add_documents()
+2026-07-29 16:18:27  [INFO    ]  rag_server.embedding         │ ✅ Embeddings generated & stored in 12.294s
+2026-07-29 16:18:27  [INFO    ]  rag_server.embedding         │    Avg time per chunk     : 455.3 ms
+2026-07-29 16:18:27  [INFO    ]  rag_server.embedding         │    Total vectors in ChromaDB: 27
+2026-07-29 16:18:27  [INFO    ]  rag_server.vectorstore       │ 🔍 [as_retriever] Updating retriever (MMR, k=8, fetch_k=20)...
+2026-07-29 16:18:27  [INFO    ]  rag_server.vectorstore       │ ✅ Retriever updated — MMR diversity search active.
+2026-07-29 16:18:27  [INFO    ]  rag_server                   │ 🎉 Document 'MMJSDataPhi-India-POSH Policy v1 1.pdf' fully indexed!
+2026-07-29 16:18:27  [INFO    ]  rag_server                   │    Pages: 13  |  Chunks: 27  |  Total DB vectors: 27
+2026-07-29 16:18:27  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ ✅ Upload success: {'filename': 'MMJSDataPhi-India-POSH Policy v1 1.pdf', 'char_count': 19153, 'chunk_count': 27, 'pages': 13, 'uploaded_at': '10:48:27'}
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ ← POST /api/upload-pdf → 200 (13407.2 ms)
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.3 ms)
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.4 ms)
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:18:27  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.3 ms)
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:18:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.2 ms)
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.9 ms)
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:18:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.6 ms)
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.1 ms)
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:18:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (19.6 ms)
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.6 ms)
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 1 files | 27 chunks | enabled=True
+2026-07-29 16:19:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.3 ms)
+2026-07-29 16:19:12  [INFO    ]  rag_server.api               │ → POST /api/upload-pdf
+2026-07-29 16:19:12  [INFO    ]  rag_server.api               │ 📥 Upload received: filename='Ideabook-2026-Spreadpdf.pdf' content_type='application/pdf'
+2026-07-29 16:19:13  [INFO    ]  rag_server.api               │    Bytes read: 26,973,081
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │ 📄 [add_pdf_document] Processing upload: 'Ideabook-2026-Spreadpdf.pdf'
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │    File size: 26,973,081 bytes
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │    📑 File extension detected: '.pdf'
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │    🔍 Method: pypdf.PdfReader — extracting text from PDF pages...
+2026-07-29 16:19:13  [INFO    ]  rag_server                   │    📖 Total pages found: 51
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   1:    146 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   2:    115 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   3:    429 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   4:    541 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   5:   1721 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   6:   1666 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   7:   2459 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   8:    195 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page   9:   2479 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  10:   2863 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  11:   2120 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  12:   2461 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  13:   2468 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  14:   1514 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  15:   1574 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  16:   2999 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  17:   2734 chars extracted
+2026-07-29 16:19:13  [DEBUG   ]  rag_server                   │       Page  18:   2770 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  19:   3011 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  20:   2309 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  21:   2813 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  22:    455 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  23:   2762 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  24:   2448 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  25:   2308 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  26:   3016 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  27:   2500 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  28:   2365 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  29:    743 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  30:   2790 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  31:   2585 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  32:   2923 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  33:   2396 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  34:   2115 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  35:   2530 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  36:   2553 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  37:    740 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  38:   2419 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  39:   2262 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  40:   2690 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  41:   2237 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  42:   2106 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  43:    303 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  44:   2241 chars extracted
+2026-07-29 16:19:14  [DEBUG   ]  rag_server                   │       Page  45:   2320 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  46:   2159 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  47:   2288 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  48:   2680 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  49:   2257 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  50:    550 chars extracted
+2026-07-29 16:19:15  [DEBUG   ]  rag_server                   │       Page  51:     43 chars extracted
+2026-07-29 16:19:15  [INFO    ]  rag_server                   │    ✅ PDF parsed in 2.099s — total chars: 101,806
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │ ────────────────────────────────────────────────────────────
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │ ✂️  [RecursiveCharacterTextSplitter] Starting chunking...
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    chunk_size    : 900 chars  (increased for richer context per chunk)
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    chunk_overlap : 120 chars  (increased to preserve cross-boundary context)
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    separators    : ['\n\n', '\n', ' ', '']
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │ ✅ Chunking complete in 0.005s
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    Total chunks produced    : 145
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    Avg chunk size           : 765 chars
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    Total chars in document  : 101,806
+2026-07-29 16:19:15  [INFO    ]  rag_server.chunking          │    Coverage per top-8 chunks: ~7% of document
+2026-07-29 16:19:15  [DEBUG   ]  rag_server.chunking          │    [Chunk #1] 722 chars | [Page 1] The 2026 Ideabook  on Outcome Era Curated lessons from leaders who are …
+2026-07-29 16:19:15  [DEBUG   ]  rag_server.chunking          │    [Chunk #2] 550 chars | [Page 4] Kasey Smith Kate Brady Kevin Bai Kevin Stanley Kristen Hayer Kristen Ro…
+2026-07-29 16:19:15  [DEBUG   ]  rag_server.chunking          │    [Chunk #3] 881 chars | [Page 5] Table of  contents 01 The Modern PS Mandate Why the Outcome Era demands…
+2026-07-29 16:19:15  [DEBUG   ]  rag_server.chunking          │    ... and 142 more chunks (enable DEBUG to see all)
+2026-07-29 16:19:15  [INFO    ]  rag_server.embedding         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:19:15  [INFO    ]  rag_server.embedding         │ 🧠 [OllamaEmbeddings] Generating embeddings & indexing into ChromaDB...
+2026-07-29 16:19:15  [INFO    ]  rag_server.embedding         │    Embedding model : nomic-embed-text
+2026-07-29 16:19:15  [INFO    ]  rag_server.embedding         │    Chunks to embed : 145
+2026-07-29 16:19:15  [INFO    ]  rag_server.embedding         │    ➕ Existing collection — calling vectorstore.add_documents()
+2026-07-29 16:19:45  [INFO    ]  rag_server.embedding         │ ✅ Embeddings generated & stored in 30.590s
+2026-07-29 16:19:45  [INFO    ]  rag_server.embedding         │    Avg time per chunk     : 211.0 ms
+2026-07-29 16:19:45  [INFO    ]  rag_server.embedding         │    Total vectors in ChromaDB: 172
+2026-07-29 16:19:45  [INFO    ]  rag_server.vectorstore       │ 🔍 [as_retriever] Updating retriever (MMR, k=8, fetch_k=20)...
+2026-07-29 16:19:45  [INFO    ]  rag_server.vectorstore       │ ✅ Retriever updated — MMR diversity search active.
+2026-07-29 16:19:45  [INFO    ]  rag_server                   │ 🎉 Document 'Ideabook-2026-Spreadpdf.pdf' fully indexed!
+2026-07-29 16:19:45  [INFO    ]  rag_server                   │    Pages: 51  |  Chunks: 145  |  Total DB vectors: 172
+2026-07-29 16:19:45  [INFO    ]  rag_server                   │ ======================================================================
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ✅ Upload success: {'filename': 'Ideabook-2026-Spreadpdf.pdf', 'char_count': 101806, 'chunk_count': 145, 'pages': 51, 'uploaded_at': '10:49:45'}
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← POST /api/upload-pdf → 200 (32948.3 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.1 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.3 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.9 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.1 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.6 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.9 ms)
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:45  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.1 ms)
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:19:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.2 ms)
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.6 ms)
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.4 ms)
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.1 ms)
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:20:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.2 ms)
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.1 ms)
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.3 ms)
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.3 ms)
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.8 ms)
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:21:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.2 ms)
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.2 ms)
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.4 ms)
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.1 ms)
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.5 ms)
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.9 ms)
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.2 ms)
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.6 ms)
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:22:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.0 ms)
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.1 ms)
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (6.5 ms)
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:24  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (6.3 ms)
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.4 ms)
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.6 ms)
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.9 ms)
+2026-07-29 16:23:49  [INFO    ]  rag_server.api               │ → OPTIONS /api/chat
+2026-07-29 16:23:49  [INFO    ]  rag_server.api               │ ← OPTIONS /api/chat → 200 (0.9 ms)
+2026-07-29 16:23:49  [INFO    ]  rag_server.api               │ → POST /api/chat
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │ 💬 [/api/chat] New chat request received
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │    User query  : 'what AI can do for delivery team?'
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │    RAG enabled : True
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │    VectorStore : ready
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │ 🏷️  Phase 1/3: Classifying query intent...
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    🏷️  Query classified as SPECIFIC
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │    Strategy selected: MMR similarity search (top-8)
+2026-07-29 16:23:49  [INFO    ]  rag_server.llm               │ 🔍 Phase 2/3: Retrieving relevant PDF chunks...
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │ 🔎 [get_relevant_chunks] Starting retrieval...
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    Query       : 'what AI can do for delivery team?'
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    Query type  : SPECIFIC
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    RAG enabled : True
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    Vectorstore : ready
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    Retriever   : ready
+2026-07-29 16:23:49  [INFO    ]  rag_server.retrieval         │    🎯 SPECIFIC query — running MMR similarity search (k=8, fetch_k=20)...
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │ ✅ SPECIFIC retrieval: 8 chunks | 6,299 chars in 2197.3 ms
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  1] source='Ideabook-2026-Spreadpdf.pdf' | [Page 15] AI in the  Delivery Engine 02 What AI can actually do for your delivery  team right now Wh…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  2] source='Ideabook-2026-Spreadpdf.pdf' | If you apply AI while still structured around hours  and utilization, you’ll get faster at exactly t…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  3] source='Ideabook-2026-Spreadpdf.pdf' | should know Srikrishnan Ganesan 36 How to build an AI scoping engine  for professional services Joey…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  4] source='Ideabook-2026-Spreadpdf.pdf' | [Page 37] Value Measurement  & Proof 05 How do you make value visible enough  that no one has to gue…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  5] source='Ideabook-2026-Spreadpdf.pdf' | customer time. Updating a RAID log, drafting  status collateral, and generating UAT scripts:  every …
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  6] source='Ideabook-2026-Spreadpdf.pdf' | Director of Consulting/ Implementation Four layers AI as the enabler, outcomes as the goal AI-Assist…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  7] source='Ideabook-2026-Spreadpdf.pdf' | delivery capacity Customers buy outcomes, not tools. AI increases  both platform power and implement…
+2026-07-29 16:23:51  [INFO    ]  rag_server.retrieval         │    [Chunk #  8] source='Ideabook-2026-Spreadpdf.pdf' | like the tone shift when a deadline comes up, the  concern mentioned once and never raised again.  A…
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │    ✅ 8 chunk(s) retrieved
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │    📏 Total context chars fed to LLM: 6,299
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │ 🤖 Phase 3/3: Invoking RAG chain (Prompt → ChatOllama → StrOutputParser)...
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │    Prompt template  : rag_prompt
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │    Context chunks   : 8
+2026-07-29 16:23:51  [INFO    ]  rag_server.llm               │    Context chars    : 6,299
+2026-07-29 16:23:51  [DEBUG   ]  rag_server.llm               │    format_docs() → 8 docs, 6617 total chars in context
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.5 ms)
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:23:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (12.6 ms)
+2026-07-29 16:24:01  [INFO    ]  rag_server.llm               │ ✅ RAG chain responded in 9.63s
+2026-07-29 16:24:01  [INFO    ]  rag_server.llm               │    Response length  : 1690 chars
+2026-07-29 16:24:01  [DEBUG   ]  rag_server.llm               │    Response preview : Based on the provided document, AI can assist delivery teams in the following ways:
+
+**1. Automation of Routine Tasks**
+AI agents can handle detailed, repetitive work, freeing humans to focus on "judg…
+2026-07-29 16:24:01  [INFO    ]  rag_server.llm               │ ⏱️  Total /api/chat round-trip: 11.84s
+2026-07-29 16:24:01  [INFO    ]  rag_server.llm               │    rag_used=True  |  sources=8
+2026-07-29 16:24:01  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:24:01  [INFO    ]  rag_server.api               │ ← POST /api/chat → 200 (11845.2 ms)
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.6 ms)
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.7 ms)
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.9 ms)
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.1 ms)
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:24:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.3 ms)
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.1 ms)
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.7 ms)
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.3 ms)
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.8 ms)
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.8 ms)
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.3 ms)
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.8 ms)
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.5 ms)
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:25:53  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.3 ms)
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:03  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.4 ms)
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:13  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.7 ms)
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:23  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.2 ms)
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:33  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.4 ms)
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:43  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.7 ms)
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.5 ms)
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:26:51  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.4 ms)
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.1 ms)
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:01  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.9 ms)
+2026-07-29 16:27:06  [INFO    ]  rag_server.api               │ → OPTIONS /api/chat
+2026-07-29 16:27:06  [INFO    ]  rag_server.api               │ ← OPTIONS /api/chat → 200 (1.9 ms)
+2026-07-29 16:27:06  [INFO    ]  rag_server.api               │ → POST /api/chat
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │ 💬 [/api/chat] New chat request received
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │    User query  : 'what AI can do for delivery'
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │    RAG enabled : True
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │    VectorStore : ready
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │ 🏷️  Phase 1/3: Classifying query intent...
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    🏷️  Query classified as SPECIFIC
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │    Strategy selected: MMR similarity search (top-8)
+2026-07-29 16:27:06  [INFO    ]  rag_server.llm               │ 🔍 Phase 2/3: Retrieving relevant PDF chunks...
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │ 🔎 [get_relevant_chunks] Starting retrieval...
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    Query       : 'what AI can do for delivery'
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    Query type  : SPECIFIC
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    RAG enabled : True
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    Vectorstore : ready
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    Retriever   : ready
+2026-07-29 16:27:06  [INFO    ]  rag_server.retrieval         │    🎯 SPECIFIC query — running MMR similarity search (k=8, fetch_k=20)...
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │ ✅ SPECIFIC retrieval: 8 chunks | 6,471 chars in 2141.4 ms
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  1] source='Ideabook-2026-Spreadpdf.pdf' | [Page 15] AI in the  Delivery Engine 02 What AI can actually do for your delivery  team right now Wh…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  2] source='Ideabook-2026-Spreadpdf.pdf' | [Page 14] 70% of your consultants’  week isn’t delivery. It’s data prep, chasing timesheets, configu…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  3] source='Ideabook-2026-Spreadpdf.pdf' | If you apply AI while still structured around hours  and utilization, you’ll get faster at exactly t…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  4] source='Ideabook-2026-Spreadpdf.pdf' | Director of Consulting/ Implementation Four layers AI as the enabler, outcomes as the goal AI-Assist…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  5] source='Ideabook-2026-Spreadpdf.pdf' | should know Srikrishnan Ganesan 36 How to build an AI scoping engine  for professional services Joey…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  6] source='Ideabook-2026-Spreadpdf.pdf' | delivery capacity Customers buy outcomes, not tools. AI increases  both platform power and implement…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  7] source='Ideabook-2026-Spreadpdf.pdf' | time savings AI targeted the work eating the most  low-value hours.  Status reports: 30 minutes down…
+2026-07-29 16:27:08  [INFO    ]  rag_server.retrieval         │    [Chunk #  8] source='Ideabook-2026-Spreadpdf.pdf' | like the tone shift when a deadline comes up, the  concern mentioned once and never raised again.  A…
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │    ✅ 8 chunk(s) retrieved
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │    📏 Total context chars fed to LLM: 6,471
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │ 🤖 Phase 3/3: Invoking RAG chain (Prompt → ChatOllama → StrOutputParser)...
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │    Prompt template  : rag_prompt
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │    Context chunks   : 8
+2026-07-29 16:27:08  [INFO    ]  rag_server.llm               │    Context chars    : 6,471
+2026-07-29 16:27:08  [DEBUG   ]  rag_server.llm               │    format_docs() → 8 docs, 6789 total chars in context
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.3 ms)
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:11  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.5 ms)
+2026-07-29 16:27:18  [INFO    ]  rag_server.llm               │ ✅ RAG chain responded in 9.78s
+2026-07-29 16:27:18  [INFO    ]  rag_server.llm               │    Response length  : 2383 chars
+2026-07-29 16:27:18  [DEBUG   ]  rag_server.llm               │    Response preview : Based on the provided document, AI can transform delivery by shifting the focus from manual tasks to outcome-oriented delivery. Here is a detailed breakdown of what AI can do for a delivery team:
+
+**1…
+2026-07-29 16:27:18  [INFO    ]  rag_server.llm               │ ⏱️  Total /api/chat round-trip: 11.93s
+2026-07-29 16:27:18  [INFO    ]  rag_server.llm               │    rag_used=True  |  sources=8
+2026-07-29 16:27:18  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:27:18  [INFO    ]  rag_server.api               │ ← POST /api/chat → 200 (11932.3 ms)
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:21  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.2 ms)
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.4 ms)
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:31  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:41  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.2 ms)
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.2 ms)
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:27:52  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.1 ms)
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:28:02  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.5 ms)
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.0 ms)
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:28:12  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.3 ms)
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.8 ms)
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:28:22  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.1 ms)
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.4 ms)
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:28:32  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.7 ms)
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.9 ms)
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:28:42  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.2 ms)
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.6 ms)
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:29:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.9 ms)
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.6 ms)
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:30:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.5 ms)
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:31:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.1 ms)
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.1 ms)
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:31:41  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.9 ms)
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.9 ms)
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:31:52  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (4.8 ms)
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.7 ms)
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:32:02  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (13.1 ms)
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.2 ms)
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:32:12  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.1 ms)
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:32:22  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.6 ms)
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.7 ms)
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:32:32  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (14.9 ms)
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.1 ms)
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:32:42  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.2 ms)
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:33:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.2 ms)
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:34:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.8 ms)
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.5 ms)
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:35:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (29.3 ms)
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.0 ms)
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:36:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.1 ms)
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:37:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.8 ms)
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.9 ms)
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:38:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.0 ms)
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:39:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.9 ms)
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.3 ms)
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:39:41  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.8 ms)
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.1 ms)
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:39:51  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.9 ms)
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.5 ms)
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:01  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.1 ms)
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.1 ms)
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:11  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.5 ms)
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:21  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.1 ms)
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.9 ms)
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:31  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.6 ms)
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.8 ms)
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:41  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.8 ms)
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:40:51  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.9 ms)
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.8 ms)
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:01  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.2 ms)
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:11  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.3 ms)
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.7 ms)
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:21  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.8 ms)
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:31  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.8 ms)
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:41  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.0 ms)
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.5 ms)
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:51  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.1 ms)
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.6 ms)
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:41:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (19.5 ms)
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.8 ms)
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.6 ms)
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (7.6 ms)
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (12.2 ms)
+2026-07-29 16:42:23  [INFO    ]  rag_server.api               │ → OPTIONS /api/chat
+2026-07-29 16:42:23  [INFO    ]  rag_server.api               │ ← OPTIONS /api/chat → 200 (5.1 ms)
+2026-07-29 16:42:23  [INFO    ]  rag_server.api               │ → POST /api/chat
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │ 💬 [/api/chat] New chat request received
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │    User query  : 'explain in brief AI in delivery engine'
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │    RAG enabled : True
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │    VectorStore : ready
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │ 🏷️  Phase 1/3: Classifying query intent...
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    🏷️  Query classified as SPECIFIC
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │    Strategy selected: MMR similarity search (top-8)
+2026-07-29 16:42:23  [INFO    ]  rag_server.llm               │ 🔍 Phase 2/3: Retrieving relevant PDF chunks...
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │ ────────────────────────────────────────────────────────────
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │ 🔎 [get_relevant_chunks] Starting retrieval...
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    Query       : 'explain in brief AI in delivery engine'
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    Query type  : SPECIFIC
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    RAG enabled : True
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    Vectorstore : ready
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    Retriever   : ready
+2026-07-29 16:42:23  [INFO    ]  rag_server.retrieval         │    🎯 SPECIFIC query — running MMR similarity search (k=8, fetch_k=20)...
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.2 ms)
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:24  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (3.0 ms)
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [DEBUG   ]  langchain_community.utils.math │ Unable to import simsimd, defaulting to NumPy implementation. If you want to use simsimd please install with `pip install simsimd`.
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │ ✅ SPECIFIC retrieval: 8 chunks | 6,362 chars in 5451.5 ms
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  1] source='Ideabook-2026-Spreadpdf.pdf' | [Page 15] AI in the  Delivery Engine 02 What AI can actually do for your delivery  team right now Wh…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  2] source='Ideabook-2026-Spreadpdf.pdf' | [Page 14] 70% of your consultants’  week isn’t delivery. It’s data prep, chasing timesheets, configu…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  3] source='Ideabook-2026-Spreadpdf.pdf' | should know Srikrishnan Ganesan 36 How to build an AI scoping engine  for professional services Joey…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  4] source='Ideabook-2026-Spreadpdf.pdf' | If you apply AI while still structured around hours  and utilization, you’ll get faster at exactly t…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  5] source='Ideabook-2026-Spreadpdf.pdf' | forever. Level 3 breaks it. LEVEL 1 — OPERATIONS AI for the people running the P&L. Resourcing, time…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  6] source='Ideabook-2026-Spreadpdf.pdf' | [Page 37] Value Measurement  & Proof 05 How do you make value visible enough  that no one has to gue…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  7] source='Ideabook-2026-Spreadpdf.pdf' | time savings AI targeted the work eating the most  low-value hours.  Status reports: 30 minutes down…
+2026-07-29 16:42:29  [INFO    ]  rag_server.retrieval         │    [Chunk #  8] source='Ideabook-2026-Spreadpdf.pdf' | like the tone shift when a deadline comes up, the  concern mentioned once and never raised again.  A…
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │    ✅ 8 chunk(s) retrieved
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │    📏 Total context chars fed to LLM: 6,362
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │ 🤖 Phase 3/3: Invoking RAG chain (Prompt → ChatOllama → StrOutputParser)...
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │    Prompt template  : rag_prompt
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │    Context chunks   : 8
+2026-07-29 16:42:29  [INFO    ]  rag_server.llm               │    Context chars    : 6,362
+2026-07-29 16:42:29  [DEBUG   ]  rag_server.llm               │    format_docs() → 8 docs, 6680 total chars in context
+2026-07-29 16:42:34  [INFO    ]  rag_server.llm               │ ✅ RAG chain responded in 5.34s
+2026-07-29 16:42:34  [INFO    ]  rag_server.llm               │    Response length  : 1462 chars
+2026-07-29 16:42:34  [DEBUG   ]  rag_server.llm               │    Response preview : Based on the provided document, AI in the delivery engine is designed to shift professional services from a model of fixing problems after the fact to one of early automation and validation. It aims t…
+2026-07-29 16:42:34  [INFO    ]  rag_server.llm               │ ⏱️  Total /api/chat round-trip: 10.81s
+2026-07-29 16:42:34  [INFO    ]  rag_server.llm               │    rag_used=True  |  sources=8
+2026-07-29 16:42:34  [INFO    ]  rag_server.llm               │ ======================================================================
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ ← POST /api/chat → 200 (10834.2 ms)
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.5 ms)
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.6 ms)
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.1 ms)
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.7 ms)
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.9 ms)
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:42:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.9 ms)
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.9 ms)
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.1 ms)
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (5.8 ms)
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.7 ms)
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:24  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.5 ms)
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.3 ms)
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.9 ms)
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.3 ms)
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (2.8 ms)
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (1.2 ms)
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:43:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (1.8 ms)
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.0 ms)
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.8 ms)
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.6 ms)
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.1 ms)
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:24  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.5 ms)
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.3 ms)
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.7 ms)
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.0 ms)
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.9 ms)
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:44:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.7 ms)
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.5 ms)
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:45:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.5 ms)
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.7 ms)
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:45:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.1 ms)
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.3 ms)
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:46:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (8.9 ms)
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.8 ms)
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:47:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.6 ms)
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.8 ms)
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:48:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.8 ms)
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.6 ms)
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:49:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (11.3 ms)
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.8 ms)
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:50:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (7.5 ms)
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.3 ms)
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:51:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (10.5 ms)
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (5.8 ms)
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:52:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (12.0 ms)
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (3.9 ms)
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:53:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.4 ms)
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (2.5 ms)
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 16:54:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (18.6 ms)
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (26.8 ms)
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:58:48  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (79.8 ms)
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (33.5 ms)
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:58:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (42.1 ms)
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (34.1 ms)
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (26.6 ms)
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (38.1 ms)
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:14  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (47.0 ms)
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (15.1 ms)
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:24  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (74.7 ms)
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (9.3 ms)
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:34  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (30.6 ms)
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.7 ms)
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:44  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (24.8 ms)
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (29.7 ms)
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 18:59:54  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (13.0 ms)
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (32.4 ms)
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:00:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (23.2 ms)
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (10.8 ms)
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:01:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (26.0 ms)
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (36.3 ms)
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:02:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (18.8 ms)
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (25.4 ms)
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:03:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (44.5 ms)
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (35.3 ms)
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:04:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (30.7 ms)
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (6.3 ms)
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:05:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (16.6 ms)
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:06:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (13.6 ms)
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.6 ms)
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:07:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (9.5 ms)
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (34.0 ms)
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:08:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (14.4 ms)
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.2 ms)
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:09:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (20.5 ms)
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (48.4 ms)
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:10:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (17.6 ms)
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (35.5 ms)
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:11:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (32.1 ms)
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (4.4 ms)
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:12:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (16.2 ms)
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (31.9 ms)
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:13:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (12.8 ms)
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (32.4 ms)
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 19:14:35  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (14.3 ms)
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (7.3 ms)
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 22:33:02  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (27.0 ms)
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ → GET /api/health
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ 🏥 Health check requested.
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ ← GET /api/health → 200 (31.4 ms)
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ → GET /api/rag/status
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ 📊 RAG status: 2 files | 172 chunks | enabled=True
+2026-07-29 22:33:04  [INFO    ]  rag_server.api               │ ← GET /api/rag/status → 200 (20.7 ms)
+2026-07-30 15:15:56  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────
+2026-07-30 15:15:56  [INFO    ]  rag_server                   │ 🔴 FastAPI application SHUTTING DOWN
+2026-07-30 15:15:56  [INFO    ]  rag_server                   │ ────────────────────────────────────────────────────────────

@@ -1,0 +1,158 @@
+2026-07-30 15:19:19  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 15:19:19  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 15:19:19  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 15:19:19  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 15:19:19  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 15:19:24  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 15:19:24  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 15:19:24  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 15:19:24  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 15:19:24  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 15:19:25  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 15:19:25  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 15:19:26  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.575s.
+2026-07-30 16:06:18  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:18  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:06:18  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:06:18  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:18  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:06:22  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:06:22  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:06:24  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 2.862s.
+2026-07-30 16:06:28  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:28  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:06:28  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:06:28  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:28  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:06:28  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:06:28  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:06:29  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.565s.
+2026-07-30 16:06:38  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:38  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:06:38  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:06:38  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:38  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:06:39  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:06:39  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:06:40  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.638s.
+2026-07-30 16:06:48  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:48  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:06:48  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:06:48  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:48  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:06:49  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:06:49  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:06:50  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.563s.
+2026-07-30 16:06:51  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:51  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:06:51  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:06:51  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:06:51  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:06:52  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:06:52  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:06:52  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.548s.
+2026-07-30 16:07:04  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:04  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:07:04  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:07:04  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:04  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:07:05  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:07:05  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:07:06  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.553s.
+2026-07-30 16:07:18  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:18  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:07:18  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:07:18  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:18  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:07:19  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:07:19  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:07:19  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.526s.
+2026-07-30 16:07:31  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:31  [INFO    ]  hr_agent                     │   🚀 LangGraph HR Multi-Agent Suite Logger Initialized
+2026-07-30 16:07:31  [INFO    ]  hr_agent                     │   📁 Log file: C:\AI Agent study\LangGraph_HR_Agent\logs\hr_agent_2026-07-30.log
+2026-07-30 16:07:31  [INFO    ]  hr_agent                     │ ======================================================================
+2026-07-30 16:07:31  [INFO    ]  hr_agent.db                  │ 🗄️ Initializing SQLite Database at: C:\AI Agent study\LangGraph_HR_Agent\hr_database.db
+2026-07-30 16:07:32  [INFO    ]  hr_agent.policy              │ 📜 [HR VectorStore] Initializing ChromaDB vector store at: C:\AI Agent study\LangGraph_HR_Agent\chroma_hr_db
+2026-07-30 16:07:32  [INFO    ]  hr_agent.policy              │ ✅ OllamaEmbeddings (nomic-embed-text) connected.
+2026-07-30 16:07:33  [INFO    ]  hr_agent.policy              │ ✅ Loaded existing ChromaDB collection with 8 chunks in 0.525s.
+2026-07-30 16:08:32  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP001 | message='What is my leave balance?'
+2026-07-30 16:08:32  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'What is my leave balance?'
+2026-07-30 16:08:32  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'What is my leave balance?' | Employee: EMP001 | Routed → leave_agent
+2026-07-30 16:08:32  [INFO    ]  hr_agent.leave               │ 🗓️ [SQLite] Querying leave balance for 'EMP001'
+2026-07-30 16:08:32  [INFO    ]  hr_agent.leave               │    Result: CL=10, SL=8, EL=14
+2026-07-30 16:08:32  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: leave_agent | Output length: 206 chars
+2026-07-30 16:08:32  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=leave_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP001 | message='Show me my leave application history'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'Show me my leave application history'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'Show me my leave application history' | Employee: EMP001 | Routed → leave_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.leave               │ 📋 [SQLite] Querying leave history for 'EMP001'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.leave               │    Found 1 leave application records.
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: leave_agent | Output length: 143 chars
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=leave_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP002 | message='I want to apply for sick leave'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'I want to apply for sick leave'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'I want to apply for sick leave' | Employee: EMP002 | Routed → leave_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.leave               │ 📝 [SQLite] Submitting leave application for 'EMP002' (Sick Leave, 2 days)
+2026-07-30 16:08:48  [INFO    ]  hr_agent.leave               │ ✅ Leave APPROVED! App ID: #2, New sick_leave balance: 8 days
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: leave_agent | Output length: 250 chars
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=leave_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP001 | message='What is my salary slip breakdown?'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'What is my salary slip breakdown?'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'What is my salary slip breakdown?' | Employee: EMP001 | Routed → salary_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.salary              │ 💰 [SQLite] Querying salary breakdown for 'EMP001'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.salary              │    Calculated Net Payout: $9,416.67 USD / month (Base: $10,000.0)
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: salary_agent | Output length: 427 chars
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=salary_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP003 | message='How is the CTC and bonus structured?'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'How is the CTC and bonus structured?'
+2026-07-30 16:08:48  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'How is the CTC and bonus structured?' | Employee: EMP003 | Routed → salary_agent
+2026-07-30 16:08:48  [INFO    ]  hr_agent.policy              │ 🔎 [RAG Search] Querying HR policy vector store for: 'How is the CTC and bonus structured?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │ ✅ Retrieved 3 matching policy chunks in 4478.6 ms
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #1] Title: 'Salary Structure & Benefits Policy' | === HR POLICY 3: SALARY STRUCTURE, TAXATION & PAYROLL === 1. Pay Cycle: Monthly ...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #2] Title: 'Probation and Reimbursement Guidelines' | 4. Code of Conduct: Zero tolerance for harassment, discrimination, or breaches o...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #3] Title: 'Salary Structure & Benefits Policy' | 4. Provident Fund (PF) & Insurance: 12% of Base Salary is contributed towards Em...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: salary_agent | Output length: 1043 chars
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=salary_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP002 | message='What is the remote work / WFH policy?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'What is the remote work / WFH policy?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'What is the remote work / WFH policy?' | Employee: EMP002 | Routed → policy_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │ 🔎 [RAG Search] Querying HR policy vector store for: 'What is the remote work / WFH policy?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │ ✅ Retrieved 3 matching policy chunks in 72.9 ms
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #1] Title: 'Working Hours and Remote Policy' | === HR POLICY 2: WORKING HOURS, REMOTE WORK & OVERTIME === 1. Standard Working H...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #2] Title: 'Leave and Attendance Policy' | === HR POLICY 1: LEAVE & ATTENDANCE RULES === 1. Casual Leave (CL): All full-tim...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #3] Title: 'Salary Structure & Benefits Policy' | === HR POLICY 3: SALARY STRUCTURE, TAXATION & PAYROLL === 1. Pay Cycle: Monthly ...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: policy_agent | Output length: 1407 chars
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=policy_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP003 | message='How many days of probation period for new hires?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'How many days of probation period for new hires?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'How many days of probation period for new hires?' | Employee: EMP003 | Routed → policy_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │ 🔎 [RAG Search] Querying HR policy vector store for: 'How many days of probation period for new hires?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │ ✅ Retrieved 3 matching policy chunks in 76.1 ms
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #1] Title: 'Probation and Reimbursement Guidelines' | === HR POLICY 4: PROBATION, PERFORMANCE REVIEWS & REIMBURSEMENTS === 1. Probatio...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #2] Title: 'Leave and Attendance Policy' | === HR POLICY 1: LEAVE & ATTENDANCE RULES === 1. Casual Leave (CL): All full-tim...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.policy              │    [Result #3] Title: 'Leave and Attendance Policy' | 3. Earned / Annual Leave (EL): Employees accrue 15 days of Earned Leave per year...
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: policy_agent | Output length: 1437 chars
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=policy_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📨 POST /api/chat | employee_id=EMP999 | message='What is my leave balance?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ▶️ [Workflow Start] Invoking LangGraph StateGraph for query: 'What is my leave balance?'
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ 🧭 [Supervisor] Query: 'What is my leave balance?' | Employee: EMP999 | Routed → leave_agent
+2026-07-30 16:08:53  [INFO    ]  hr_agent.leave               │ 🗓️ [SQLite] Querying leave balance for 'EMP999'
+2026-07-30 16:08:53  [WARNING ]  hr_agent.leave               │ ⚠️ Employee 'EMP999' not found in leave_balances table.
+2026-07-30 16:08:53  [INFO    ]  hr_agent.orchestrator        │ ⏹️ [Workflow End] Agent: leave_agent | Output length: 113 chars
+2026-07-30 16:08:53  [INFO    ]  hr_agent.api                 │ 📤 POST /api/chat response | agent=leave_agent
+2026-07-30 16:09:09  [INFO    ]  hr_agent.api                 │ 📨 GET /api/employees/EMP002/leave
+2026-07-30 16:09:09  [INFO    ]  hr_agent.leave               │ 🗓️ [SQLite] Querying leave balance for 'EMP002'
+2026-07-30 16:09:09  [INFO    ]  hr_agent.leave               │    Result: CL=12, SL=8, EL=15
+2026-07-30 16:09:09  [INFO    ]  hr_agent.leave               │ 📋 [SQLite] Querying leave history for 'EMP002'
+2026-07-30 16:09:09  [INFO    ]  hr_agent.leave               │    Found 1 leave application records.
+2026-07-30 16:09:09  [INFO    ]  hr_agent.api                 │ 📨 GET /api/employees/EMP003/salary
+2026-07-30 16:09:09  [INFO    ]  hr_agent.salary              │ 💰 [SQLite] Querying salary breakdown for 'EMP003'
+2026-07-30 16:09:09  [INFO    ]  hr_agent.salary              │    Calculated Net Payout: $8,666.67 USD / month (Base: $9,166.67)
+2026-07-30 16:09:09  [INFO    ]  hr_agent.api                 │ 📨 GET /api/employees/EMP404/salary
+2026-07-30 16:09:09  [INFO    ]  hr_agent.salary              │ 💰 [SQLite] Querying salary breakdown for 'EMP404'
+2026-07-30 16:09:09  [WARNING ]  hr_agent.salary              │ ⚠️ Salary info not found for 'EMP404'.
+2026-07-30 16:09:09  [WARNING ]  hr_agent.api                 │ ⚠️ GET /api/employees/EMP404/salary → 404 not found
+2026-07-30 16:09:09  [INFO    ]  hr_agent.api                 │ 📨 POST /api/leave/apply | employee_id=EMP001 | type=Casual Leave | days=30
+2026-07-30 16:09:09  [INFO    ]  hr_agent.leave               │ 📝 [SQLite] Submitting leave application for 'EMP001' (Casual Leave, 30 days)
+2026-07-30 16:09:09  [WARNING ]  hr_agent.leave               │ ⚠️ Insufficient balance: requested 30 days, available 10 days (casual_leave)
+2026-07-30 16:09:09  [WARNING ]  hr_agent.api                 │ ⚠️ POST /api/leave/apply failed: Insufficient Casual Leave balance. Available: 10 days, Requested: 30 days.

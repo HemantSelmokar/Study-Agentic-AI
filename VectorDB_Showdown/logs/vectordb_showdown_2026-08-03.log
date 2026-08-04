@@ -1,0 +1,242 @@
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │   CASE STUDY START — customer_support (Customer Support Knowledge Base) provider=ollama
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:16  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.520s
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=customer_support | provider=ollama
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:16  [INFO    ]  vdb.compare              │ Loaded 16 document chunk(s) for case study 'customer_support'
+2026-08-03 19:11:16  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 19:11:16  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 19:11:16  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 19:11:20  [DEBUG   ]  faiss.loader             │ Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2026-08-03 19:11:20  [INFO    ]  faiss.loader             │ Loading faiss with AVX2 support.
+2026-08-03 19:11:20  [INFO    ]  faiss.loader             │ Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-03 19:11:20  [INFO    ]  faiss.loader             │ Loading faiss.
+2026-08-03 19:11:20  [INFO    ]  faiss.loader             │ Successfully loaded faiss.
+2026-08-03 19:11:20  [INFO    ]  vdb.faiss                │ Index built in 4.077s for 16 vectors (254.8 ms/vector)
+2026-08-03 19:11:20  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\customer_support_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 19:11:20  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 19:11:20  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 19:11:20  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Collection built in 1.608s for 16 vectors (100.5 ms/vector)
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\customer_support_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 4.0773s / 52.54 KB  |  Chroma: 1.6081s / 614.16 KB
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=None
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — no metadata filter requested
+2026-08-03 19:11:22  [INFO    ]  vdb.faiss                │ Query done in 76.2 ms — 3 result(s) returned
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter=None
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Query done in 125.7 ms — 3 result(s) returned
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ RESULT — FAISS 76.23 ms vs Chroma 125.74 ms (FAISS is 1.65x the speed of Chroma)
+2026-08-03 19:11:22  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.025s
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('customer_support', 'ollama')
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │   QUERY — 'My package says delivered but never arrived' | case_study=customer_support | filter=None
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.faiss                │ Query: 'My package says delivered but never arrived' (k=3) — no metadata filter requested
+2026-08-03 19:11:22  [INFO    ]  vdb.faiss                │ Query done in 75.0 ms — 3 result(s) returned
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#1] score=0.5172 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#2] score=1.0230 | "Two-factor authentication codes never arrive by SMS. Try the 'Use Authenticator App' fallb"
+2026-08-03 19:11:22  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0407 | 'Do you ship to PO boxes? Yes, standard shipping supports PO boxes, but express and same-da'
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Query: 'My package says delivered but never arrived' (k=3) — native `where` filter=None
+2026-08-03 19:11:22  [INFO    ]  vdb.chroma               │ Query done in 62.6 ms — 3 result(s) returned
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#1] score=0.5172 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#2] score=1.0230 | "Two-factor authentication codes never arrive by SMS. Try the 'Use Authenticator App' fallb"
+2026-08-03 19:11:22  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0407 | 'Do you ship to PO boxes? Yes, standard shipping supports PO boxes, but express and same-da'
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ RESULT — FAISS 74.96 ms vs Chroma 62.6 ms (FAISS is 0.84x the speed of Chroma)
+2026-08-03 19:11:22  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.022s
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('customer_support', 'ollama')
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │   QUERY — 'The app keeps crashing at checkout' | case_study=customer_support | filter=None
+2026-08-03 19:11:22  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:22  [INFO    ]  vdb.faiss                │ Query: 'The app keeps crashing at checkout' (k=3) — no metadata filter requested
+2026-08-03 19:11:23  [INFO    ]  vdb.faiss                │ Query done in 66.2 ms — 3 result(s) returned
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#1] score=0.3057 | 'The app crashes when I open the checkout screen. Update to the latest app version, clear t'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#2] score=1.0082 | "Two-factor authentication codes never arrive by SMS. Try the 'Use Authenticator App' fallb"
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#3] score=1.1038 | 'Can I get an invoice for my last purchase? Yes, invoices are available under Orders > Orde'
+2026-08-03 19:11:23  [INFO    ]  vdb.chroma               │ Query: 'The app keeps crashing at checkout' (k=3) — native `where` filter=None
+2026-08-03 19:11:23  [INFO    ]  vdb.chroma               │ Query done in 67.5 ms — 3 result(s) returned
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#1] score=0.3057 | 'The app crashes when I open the checkout screen. Update to the latest app version, clear t'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#2] score=1.0082 | "Two-factor authentication codes never arrive by SMS. Try the 'Use Authenticator App' fallb"
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#3] score=1.1038 | 'Can I get an invoice for my last purchase? Yes, invoices are available under Orders > Orde'
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ RESULT — FAISS 66.19 ms vs Chroma 67.49 ms (FAISS is 1.02x the speed of Chroma)
+2026-08-03 19:11:23  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.014s
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('customer_support', 'ollama')
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=('category', 'Billing')
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:23  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — metadata_filter=('category', 'Billing') — FAISS has NO native filter, so we over-fetch then filter in Python
+2026-08-03 19:11:23  [INFO    ]  vdb.faiss                │ Query done in 78.3 ms — 3 result(s) returned
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 19:11:23  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter={'category': 'Billing'}
+2026-08-03 19:11:23  [INFO    ]  vdb.chroma               │ Query done in 93.7 ms — 3 result(s) returned
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 19:11:23  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ RESULT — FAISS 78.27 ms vs Chroma 93.73 ms (FAISS is 1.2x the speed of Chroma)
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │   CASE STUDY END — customer_support
+2026-08-03 19:11:23  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │   CASE STUDY START — campus_policy (Engineering Campus Policy Handbook) provider=ollama
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.509s
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=campus_policy | provider=ollama
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.compare              │ Loaded 25 document chunk(s) for case study 'campus_policy'
+2026-08-03 19:11:30  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 19:11:30  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 19:11:30  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 19:11:34  [DEBUG   ]  faiss.loader             │ Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2026-08-03 19:11:34  [INFO    ]  faiss.loader             │ Loading faiss with AVX2 support.
+2026-08-03 19:11:34  [INFO    ]  faiss.loader             │ Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-03 19:11:34  [INFO    ]  faiss.loader             │ Loading faiss.
+2026-08-03 19:11:34  [INFO    ]  faiss.loader             │ Successfully loaded faiss.
+2026-08-03 19:11:34  [INFO    ]  vdb.faiss                │ Index built in 3.635s for 25 vectors (145.4 ms/vector)
+2026-08-03 19:11:34  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\campus_policy_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 19:11:34  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 19:11:34  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 19:11:34  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Collection built in 2.133s for 25 vectors (85.3 ms/vector)
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\campus_policy_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 3.6346s / 83.01 KB  |  Chroma: 2.1327s / 658.16 KB
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │   QUERY — 'What is the minimum attendance requirement?' | case_study=campus_policy | filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query: 'What is the minimum attendance requirement?' (k=3) — no metadata filter requested
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query done in 58.8 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query: 'What is the minimum attendance requirement?' (k=3) — native `where` filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query done in 77.5 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ RESULT — FAISS 58.77 ms vs Chroma 77.5 ms (FAISS is 1.32x the speed of Chroma)
+2026-08-03 19:11:36  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.026s
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('campus_policy', 'ollama')
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │   QUERY — "What happens if I'm caught cheating in an exam?" | case_study=campus_policy | filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query: "What happens if I'm caught cheating in an exam?" (k=3) — no metadata filter requested
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query done in 75.3 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#1] score=0.6907 | 'requires a temporary pass issued by the examination cell at least one hour before the exam'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#2] score=0.7045 | 'cancellation of that examination and a disciplinary hearing before the Academic Integrity\n'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#3] score=0.8173 | 'SECTION 2: EXAMINATION RULES\nEnd-semester examinations are conducted over a 15-day window '
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query: "What happens if I'm caught cheating in an exam?" (k=3) — native `where` filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query done in 84.0 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#1] score=0.6907 | 'requires a temporary pass issued by the examination cell at least one hour before the exam'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#2] score=0.7045 | 'cancellation of that examination and a disciplinary hearing before the Academic Integrity\n'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#3] score=0.8173 | 'SECTION 2: EXAMINATION RULES\nEnd-semester examinations are conducted over a 15-day window '
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ RESULT — FAISS 75.29 ms vs Chroma 84.01 ms (FAISS is 1.12x the speed of Chroma)
+2026-08-03 19:11:36  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.023s
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('campus_policy', 'ollama')
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │   QUERY — 'How many credits do I need to graduate?' | case_study=campus_policy | filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query: 'How many credits do I need to graduate?' (k=3) — no metadata filter requested
+2026-08-03 19:11:36  [INFO    ]  vdb.faiss                │ Query done in 76.0 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4173 | 'credit weight — typically 3 to 4 credits for theory courses and 1 to 2 credits for\nlaborat'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#2] score=0.7591 | 'SECTION 7: GRADING AND CREDIT SYSTEM\nThe institute follows a 10-point CGPA grading scale, '
+2026-08-03 19:11:36  [DEBUG   ]  vdb.faiss                │   [#3] score=0.8395 | 'subject to maintaining a minimum 8.5 CGPA. Need-based financial aid applications open at\nt'
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query: 'How many credits do I need to graduate?' (k=3) — native `where` filter=None
+2026-08-03 19:11:36  [INFO    ]  vdb.chroma               │ Query done in 70.9 ms — 3 result(s) returned
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4173 | 'credit weight — typically 3 to 4 credits for theory courses and 1 to 2 credits for\nlaborat'
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#2] score=0.7591 | 'SECTION 7: GRADING AND CREDIT SYSTEM\nThe institute follows a 10-point CGPA grading scale, '
+2026-08-03 19:11:36  [DEBUG   ]  vdb.chroma               │   [#3] score=0.8395 | 'subject to maintaining a minimum 8.5 CGPA. Need-based financial aid applications open at\nt'
+2026-08-03 19:11:36  [INFO    ]  vdb.compare              │ RESULT — FAISS 75.97 ms vs Chroma 70.85 ms (FAISS is 0.93x the speed of Chroma)
+2026-08-03 19:11:37  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 19:11:37  [INFO    ]  vdb.compare              │   CASE STUDY END — campus_policy
+2026-08-03 19:11:37  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 2.007s
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=customer_support | provider=ollama
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.compare              │ Loaded 16 document chunk(s) for case study 'customer_support'
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 22:36:09  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:15  [INFO    ]  vdb.faiss                │ Index built in 5.905s for 16 vectors (369.1 ms/vector)
+2026-08-03 22:36:15  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\customer_support_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=customer_support | provider=ollama | docs=16
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:15  [INFO    ]  vdb.chroma               │ Cleared previous persisted collection at C:\AI Agent study\VectorDB_Showdown\chroma_store\customer_support_ollama
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Collection built in 3.831s for 16 vectors (239.4 ms/vector)
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\customer_support_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 5.9053s / 52.54 KB  |  Chroma: 3.8306s / 614.16 KB
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=None
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:19  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — no metadata filter requested
+2026-08-03 22:36:19  [INFO    ]  vdb.faiss                │ Query done in 137.3 ms — 3 result(s) returned
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter=None
+2026-08-03 22:36:19  [INFO    ]  vdb.chroma               │ Query done in 140.9 ms — 3 result(s) returned
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:19  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0246 | 'My order shows delivered but I never received it. Contact support within 48 hours of the d'
+2026-08-03 22:36:19  [INFO    ]  vdb.compare              │ RESULT — FAISS 137.28 ms vs Chroma 140.89 ms (FAISS is 1.03x the speed of Chroma)
+2026-08-03 22:36:20  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.041s
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ Reusing cached FAISS + Chroma indexes for ('customer_support', 'ollama')
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │   QUERY — 'How do I get a refund for a duplicate charge?' | case_study=customer_support | filter=('category', 'Billing')
+2026-08-03 22:36:20  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:20  [INFO    ]  vdb.faiss                │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — metadata_filter=('category', 'Billing') — FAISS has NO native filter, so we over-fetch then filter in Python
+2026-08-03 22:36:21  [INFO    ]  vdb.faiss                │ Query done in 175.5 ms — 3 result(s) returned
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.faiss                │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 22:36:21  [INFO    ]  vdb.chroma               │ Query: 'How do I get a refund for a duplicate charge?' (k=3) — native `where` filter={'category': 'Billing'}
+2026-08-03 22:36:21  [INFO    ]  vdb.chroma               │ Query done in 138.9 ms — 3 result(s) returned
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4115 | 'Why was I charged twice this month? Duplicate charges usually happen when a payment retrie'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#2] score=0.9401 | 'My subscription renewed but I wanted to cancel. Cancel at least 24 hours before the renewa'
+2026-08-03 22:36:21  [DEBUG   ]  vdb.chroma               │   [#3] score=1.0380 | "How do I update my credit card details? Go to Account Settings > Payment Methods, click 'A"
+2026-08-03 22:36:21  [INFO    ]  vdb.compare              │ RESULT — FAISS 175.51 ms vs Chroma 138.92 ms (FAISS is 0.79x the speed of Chroma)
+2026-08-03 22:36:24  [INFO    ]  vdb.embedding            │ OllamaEmbeddings (nomic-embed-text @ http://localhost:11434) ready in 0.046s
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │   BUILD BOTH — case_study=campus_policy | provider=ollama
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.compare              │ Loaded 25 document chunk(s) for case study 'campus_policy'
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │   FAISS — building index | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 22:36:24  [INFO    ]  vdb.faiss                │ ==========================================================================
+2026-08-03 22:36:30  [INFO    ]  vdb.faiss                │ Index built in 5.651s for 25 vectors (226.1 ms/vector)
+2026-08-03 22:36:30  [INFO    ]  vdb.faiss                │ Persisted via FAISS.save_local() → C:\AI Agent study\VectorDB_Showdown\faiss_index\campus_policy_ollama (binary index.faiss + index.pkl — no query engine, just raw files)
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │   Chroma — building collection | case_study=campus_policy | provider=ollama | docs=25
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ ==========================================================================
+2026-08-03 22:36:30  [INFO    ]  vdb.chroma               │ Cleared previous persisted collection at C:\AI Agent study\VectorDB_Showdown\chroma_store\campus_policy_ollama
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Collection built in 3.789s for 25 vectors (151.6 ms/vector)
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Auto-persisted to SQLite-backed store → C:\AI Agent study\VectorDB_Showdown\chroma_store\campus_policy_ollama (collection is queryable immediately, metadata stored alongside each vector)
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ BUILD SUMMARY — FAISS: 5.6513s / 83.01 KB  |  Chroma: 3.7893s / 658.16 KB
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │   QUERY — 'What is the minimum attendance requirement?' | case_study=campus_policy | filter=None
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ ==========================================================================
+2026-08-03 22:36:34  [INFO    ]  vdb.faiss                │ Query: 'What is the minimum attendance requirement?' (k=3) — no metadata filter requested
+2026-08-03 22:36:34  [INFO    ]  vdb.faiss                │ Query done in 159.9 ms — 3 result(s) returned
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 22:36:34  [DEBUG   ]  vdb.faiss                │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Query: 'What is the minimum attendance requirement?' (k=3) — native `where` filter=None
+2026-08-03 22:36:34  [INFO    ]  vdb.chroma               │ Query done in 328.1 ms — 3 result(s) returned
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#1] score=0.4062 | 'SECTION 1: ATTENDANCE REQUIREMENTS\nAll students must maintain a minimum of 75% attendance '
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#2] score=0.6168 | 'attendance are debarred from the examination for that subject and must repeat the course\ni'
+2026-08-03 22:36:34  [DEBUG   ]  vdb.chroma               │   [#3] score=0.6549 | 'not as an overall average across subjects. Students falling between 65% and 75% attendance'
+2026-08-03 22:36:34  [INFO    ]  vdb.compare              │ RESULT — FAISS 159.91 ms vs Chroma 328.06 ms (FAISS is 2.05x the speed of Chroma)

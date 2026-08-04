@@ -1,0 +1,18 @@
+=== ENGINEERING CAMPUS INFORMATION & RULES 2026 ===
+
+1. ATTENDANCE & ACADEMIC ELIGIBILITY:
+   - Students must maintain a minimum of 75% attendance in each subject to be eligible for mid-term and final semester examinations.
+   - Medical leaves require submission of an official medical certificate signed by a registered practitioner within 3 days of returning to campus.
+
+2. LABORATORY & RESEARCH FACILITIES:
+   - The High-Performance Computing (HPC) Lab is open 24/7 for senior and graduate research students. Access requires card swipe authentication.
+   - The Robotics and Embedded Systems Lab is located on the 3rd floor of Block B. Equipment checkout hours are between 10:00 AM and 4:00 PM.
+
+3. CAPSTONE PROJECT GUIDELINES:
+   - Final year engineering projects must be registered by September 15th.
+   - Every team consists of 3 to 4 students and must have an assigned faculty mentor.
+   - Interdisciplinary projects combining Computer Science and Electrical Engineering receive priority seed grants up to $1,500.
+
+4. SCHOLARSHIPS AND GRANTS:
+   - The Dean's Merit Scholarship covers 50% tuition for students maintaining a Cumulative GPA (CGPA) above 3.8.
+   - Innovation Grants are awarded annually by the Incubation Cell for student startups. Application deadline is October 31st.

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LangGraph HR Multi-Agent Suite</title>
+  <meta name="description" content="LangGraph Multi-Agent HR Portal for Leave Applications, Salary Information, and HR Policy RAG" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Base Reset & Styling ──────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-base:       #090d16;
+      --bg-panel:      #111827;
+      --bg-card:       #1a2235;
+      --bg-input:      #151d2e;
+      --border:        rgba(99, 102, 241, 0.2);
+      --border-hover:  rgba(99, 102, 241, 0.5);
+      --accent:        #6366f1;
+      --accent-2:      #8b5cf6;
+      --teal:          #06b6d4;
+      --emerald:       #10b981;
+      --amber:         #f59e0b;
+      --rose:          #f43f5e;
+      --text-primary:  #f1f5f9;
+      --text-secondary:#94a3b8;
+      --text-muted:    #475569;
+      --user-bg:       linear-gradient(135deg, #6366f1, #8b5cf6);
+      --agent-bg:      #1a2235;
+      --glow:          rgba(99, 102, 241, 0.25);
+      --radius:        14px;
+      --radius-sm:     8px;
+      --transition:    0.25s ease;
+    }
+
+    html, body { height: 100%; font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-primary); overflow: hidden; }
+
+    /* Background Grid Pattern */
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(99,102,241,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 36px 36px; pointer-events: none; z-index: 0;
+    }
+
+    /* Header */
+    header {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 28px; background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #10b981, #06b6d4);
+      border-radius: 12px; display: grid; place-items: center;
+      font-size: 22px; box-shadow: 0 0 20px rgba(16,185,129,0.3);
+    }
+    .brand-text h1 {
+      font-size: 18px; font-weight: 700;
+      background: linear-gradient(135deg, #a7f3d0, #38bdf8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .brand-text p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .status-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px; background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3); border-radius: 20px;
+      font-size: 12px; color: #34d399; font-weight: 500;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981; }
+
+    .btn-apply-leave {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff; border: none; padding: 10px 18px; border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      transition: var(--transition); box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+    }
+    .btn-apply-leave:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,0.5); }
+
+    /* Main Container */
+    .app-layout {
+      position: relative; z-index: 1; display: flex; height: calc(100vh - 77px);
+    }
+
+    /* Left Sidebar Dashboard */
+    .sidebar-dash {
+      width: 320px; background: var(--bg-panel); border-right: 1px solid var(--border);
+      padding: 20px; display: flex; flex-direction: column; gap: 20px; overflow-y: auto;
+    }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px;
+    }
+    .card-title { font-size: 13.5px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+    .profile-info { display: flex; flex-direction: column; gap: 6px; }
+    .profile-name { font-size: 15px; font-weight: 700; color: #f1f5f9; }
+    .profile-meta { font-size: 12px; color: var(--text-secondary); }
+    .profile-id-tag { display: inline-block; padding: 2px 8px; background: rgba(99,102,241,0.15); color: #a5b4fc; border-radius: 4px; font-size: 11px; font-weight: 600; margin-top: 4px; }
+
+    .leave-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+    .leave-stat {
+      background: rgba(15,23,42,0.6); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 10px 6px; text-align: center;
+    }
+    .leave-num { font-size: 18px; font-weight: 700; color: var(--teal); }
+    .leave-lbl { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+
+    /* Chat Area */
+    .chat-container { flex: 1; display: flex; flex-direction: column; height: 100%; }
+
+    #chat-window {
+      flex: 1; overflow-y: auto; padding: 24px 20px; display: flex; flex-direction: column; gap: 20px;
+    }
+
+    /* Message Rows */
+    .message-row { display: flex; gap: 12px; max-width: 880px; width: 100%; animation: slide-in 0.3s ease; }
+    @keyframes slide-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    .message-row.user  { align-self: flex-end; flex-direction: row-reverse; }
+    .message-row.agent { align-self: flex-start; }
+
+    .avatar { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; font-size: 17px; flex-shrink: 0; align-self: flex-end; }
+    .message-row.user  .avatar { background: var(--user-bg); }
+    .message-row.agent .avatar { background: var(--bg-card); border: 1px solid var(--border); }
+
+    .bubble-wrap { display: flex; flex-direction: column; gap: 6px; max-width: calc(100% - 50px); }
+    .bubble { padding: 14px 18px; border-radius: var(--radius); line-height: 1.65; font-size: 14.5px; white-space: pre-wrap; word-break: break-word; }
+
+    .message-row.user  .bubble { background: var(--user-bg); border-radius: var(--radius) var(--radius) 4px var(--radius); color: #fff; box-shadow: 0 4px 20px rgba(99,102,241,0.35); }
+    .message-row.agent .bubble { background: var(--agent-bg); border: 1px solid var(--border); border-radius: var(--radius) var(--radius) var(--radius) 4px; color: var(--text-primary); }
+
+    .agent-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600;
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35); color: #34d399;
+      margin-top: 4px; width: fit-content;
+    }
+
+    /* Welcome Area */
+    #welcome {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      flex: 1; text-align: center; gap: 16px; padding: 40px 20px;
+    }
+    .welcome-icon { width: 72px; height: 72px; background: linear-gradient(135deg, #10b981, #06b6d4); border-radius: 20px; display: grid; place-items: center; font-size: 36px; box-shadow: 0 0 40px rgba(16,185,129,0.3); }
+    #welcome h2 { font-size: 24px; font-weight: 700; background: linear-gradient(135deg, #a7f3d0, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #welcome p { font-size: 14px; color: var(--text-secondary); max-width: 520px; line-height: 1.6; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 680px; margin-top: 8px; }
+    .chip { padding: 9px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; font-size: 13px; color: var(--text-secondary); cursor: pointer; transition: var(--transition); }
+    .chip:hover { border-color: var(--border-hover); color: var(--text-primary); background: rgba(99,102,241,0.08); transform: translateY(-1px); }
+
+    /* Input Bar */
+    #input-bar { padding: 16px 20px 20px; background: rgba(17, 24, 39, 0.85); backdrop-filter: blur(20px); border-top: 1px solid var(--border); }
+    .input-wrap { display: flex; gap: 10px; align-items: flex-end; max-width: 880px; margin: 0 auto; background: var(--bg-input); border: 1px solid var(--border); border-radius: 16px; padding: 10px 10px 10px 18px; }
+    .input-wrap:focus-within { border-color: var(--border-hover); box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+
+    #user-input { flex: 1; background: transparent; border: none; outline: none; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.5; resize: none; min-height: 24px; max-height: 160px; }
+    #send-btn { width: 40px; height: 40px; background: linear-gradient(135deg, #10b981, #06b6d4); border: none; border-radius: 10px; cursor: pointer; display: grid; place-items: center; font-size: 17px; transition: var(--transition); flex-shrink: 0; box-shadow: 0 4px 14px rgba(16,185,129,0.3); }
+    #send-btn:hover:not(:disabled) { transform: scale(1.08); }
+
+    /* Modal Form for Leave Application */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+      display: none; place-items: center; z-index: 100; animation: fadeIn 0.2s ease;
+    }
+    .modal-overlay.active { display: grid; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .modal-card {
+      background: var(--bg-panel); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; width: 100%; max-width: 460px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .modal-header h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+    .close-modal { background: transparent; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer; }
+    .close-modal:hover { color: var(--rose); }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+    .form-group input, .form-group select, .form-group textarea {
+      background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 10px 12px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 13.5px; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); }
+
+    .btn-submit {
+      width: 100%; background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff;
+      border: none; padding: 12px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: var(--transition); margin-top: 8px;
+    }
+    .btn-submit:hover { opacity: 0.9; }
+
+    /* Toast */
+    #toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: rgba(30,41,59,0.95); border: 1px solid var(--border); color: var(--text-primary);
+      padding: 12px 22px; border-radius: 12px; font-size: 13px; font-weight: 500;
+      opacity: 0; transition: all 0.3s ease; pointer-events: none; z-index: 200; white-space: nowrap;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">👔</div>
+      <div class="brand-text">
+        <h1>LangGraph HR Multi-Agent Suite</h1>
+        <p>Orchestrated Workflows · SQLite DB · ChromaDB RAG</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="status-pill">
+        <div class="status-dot"></div>
+        <span id="status-text">Port 8001 Connected</span>
+      </div>
+      <button class="btn-apply-leave" onclick="openLeaveModal()">
+        ➕ <span>Apply Leave</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <div class="app-layout">
+
+    <!-- Left Sidebar Dashboard -->
+    <div class="sidebar-dash">
+
+      <!-- Employee Card -->
+      <div class="card">
+        <div class="card-title">👤 Employee Profile</div>
+        <div class="profile-info">
+          <div class="profile-name" id="emp-name">John Doe</div>
+          <div class="profile-meta" id="emp-dept">Senior Software Engineer · Engineering</div>
+          <div><span class="profile-id-tag" id="emp-id">EMP001</span></div>
+        </div>
+      </div>
+
+      <!-- Leave Balance Card -->
+      <div class="card">
+        <div class="card-title">🗓️ Leave Balances</div>
+        <div class="leave-grid">
+          <div class="leave-stat">
+            <div class="leave-num" id="bal-casual">10</div>
+            <div class="leave-lbl">Casual (CL)</div>
+          </div>
+          <div class="leave-stat">
+            <div class="leave-num" id="bal-sick">8</div>
+            <div class="leave-lbl">Sick (SL)</div>
+          </div>
+          <div class="leave-stat">
+            <div class="leave-num" id="bal-earned">14</div>
+            <div class="leave-lbl">Earned (EL)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agents Status Card -->
+      <div class="card">
+        <div class="card-title">🤖 Active Domain Agents</div>
+        <div style="display:flex; flex-direction:column; gap:8px; font-size:12px; color:var(--text-secondary);">
+          <div>🗓️ <strong>Leave Agent</strong> (SQLite DB)</div>
+          <div>💰 <strong>Salary Agent</strong> (SQLite DB + RAG)</div>
+          <div>📜 <strong>Policy Agent</strong> (ChromaDB Vector Store)</div>
+          <div>🔀 <strong>Supervisor</strong> (LangGraph StateGraph)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Main Chat Area -->
+    <div class="chat-container">
+      <div id="chat-window">
+        <div id="welcome">
+          <div class="welcome-icon">🏢</div>
+          <h2>Welcome to HR Multi-Agent Assistant!</h2>
+          <p>I am your central HR Orchestrator powered by LangGraph. I automatically route your request to the specialist agent for Leave Applications, Salary Slips, or HR Policies.</p>
+
+          <div class="chips">
+            <div class="chip" onclick="sendChip(this)">Check my casual & sick leave balance for EMP001</div>
+            <div class="chip" onclick="sendChip(this)">Show my monthly net salary slip breakdown</div>
+            <div class="chip" onclick="sendChip(this)">Apply for 2 days casual leave starting 2026-08-10</div>
+            <div class="chip" onclick="sendChip(this)">What is the maternity and paternity leave policy?</div>
+            <div class="chip" onclick="sendChip(this)">What are the official working hours and remote work rules?</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div id="input-bar">
+        <div class="input-wrap">
+          <textarea id="user-input" placeholder="Ask about leave balance, salary slip, or HR policy rules…" rows="1"></textarea>
+          <button id="send-btn" onclick="sendMessage()">➤</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Leave Application Modal Dialog -->
+  <div class="modal-overlay" id="leave-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>📝 Apply for Leave</h3>
+        <button class="close-modal" onclick="closeLeaveModal()">✕</button>
+      </div>
+      <form id="leave-form" onsubmit="handleLeaveFormSubmit(event)">
+        <div class="form-group">
+          <label>Employee ID</label>
+          <input type="text" id="modal-emp-id" value="EMP001" required />
+        </div>
+        <div class="form-group">
+          <label>Leave Type</label>
+          <select id="modal-leave-type">
+            <option value="Casual Leave">Casual Leave (CL)</option>
+            <option value="Sick Leave">Sick Leave (SL)</option>
+            <option value="Earned Leave">Earned Leave (EL)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" id="modal-start-date" required />
+        </div>
+        <div class="form-group">
+          <label>End Date</label>
+          <input type="date" id="modal-end-date" required />
+        </div>
+        <div class="form-group">
+          <label>Reason</label>
+          <textarea id="modal-reason" rows="2" placeholder="State reason for leave…" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <script>
+    const BASE_URL = 'http://localhost:8001';
+    const chatWindow = document.getElementById('chat-window');
+    const welcome    = document.getElementById('welcome');
+    const input      = document.getElementById('user-input');
+    const toast      = document.getElementById('toast');
+
+    let currentEmpId = "EMP001";
+
+    // ── Auto-resize input ────────────────────────────────────
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 160) + 'px';
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    function sendChip(el) {
+      input.value = el.textContent;
+      sendMessage();
+    }
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    // ── Load Employee & Leave Balance ────────────────────────
+    async function loadEmployeeData(empId) {
+      try {
+        const res = await fetch(`${BASE_URL}/api/employees/${empId}/leave`);
+        if (res.ok) {
+          const data = await res.json();
+          document.getElementById('emp-name').textContent = data.name;
+          document.getElementById('emp-id').textContent = data.employee_id;
+          document.getElementById('bal-casual').textContent = data.balance.casual_leave;
+          document.getElementById('bal-sick').textContent = data.balance.sick_leave;
+          document.getElementById('bal-earned').textContent = data.balance.earned_leave;
+        }
+      } catch (err) {
+        console.error("Failed to load employee data:", err);
+      }
+    }
+
+    // ── Append Message ───────────────────────────────────────
+    function appendMessage(role, text, agentName = null) {
+      if (welcome) welcome.style.display = 'none';
+
+      const row = document.createElement('div');
+      row.className = `message-row ${role}`;
+
+      const avatar = document.createElement('div');
+      avatar.className = 'avatar';
+      avatar.textContent = role === 'user' ? '🧑' : '🤖';
+
+      const wrap = document.createElement('div');
+      wrap.className = 'bubble-wrap';
+
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      bubble.textContent = text;
+      wrap.appendChild(bubble);
+
+      if (role === 'agent' && agentName) {
+        const badge = document.createElement('div');
+        badge.className = 'agent-badge';
+        badge.textContent = agentName;
+        wrap.appendChild(badge);
+      }
+
+      row.appendChild(avatar);
+      row.appendChild(wrap);
+      chatWindow.appendChild(row);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // ── Send Message ─────────────────────────────────────────
+    async function sendMessage() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      input.style.height = 'auto';
+
+      appendMessage('user', text);
+
+      try {
+        const res = await fetch(`${BASE_URL}/api/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, employee_id: currentEmpId })
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({ detail: 'Server error' }));
+          throw new Error(err.detail || 'Failed to fetch response');
+        }
+
+        const data = await res.json();
+        appendMessage('agent', data.response, data.active_agent_name);
+        
+        // Refresh sidebar balances
+        loadEmployeeData(currentEmpId);
+      } catch (err) {
+        appendMessage('agent', `⚠️ Error: ${err.message}. Please verify FastAPI server is running on port 8001.`);
+      }
+    }
+
+    // ── Modal Handlers ───────────────────────────────────────
+    function openLeaveModal() {
+      document.getElementById('modal-start-date').valueAsDate = new Date();
+      document.getElementById('modal-end-date').valueAsDate = new Date();
+      document.getElementById('leave-modal').classList.add('active');
+    }
+
+    function closeLeaveModal() {
+      document.getElementById('leave-modal').classList.remove('active');
+    }
+
+    async function handleLeaveFormSubmit(e) {
+      e.preventDefault();
+      const empId = document.getElementById('modal-emp-id').value.trim();
+      const leaveType = document.getElementById('modal-leave-type').value;
+      const startDate = document.getElementById('modal-start-date').value;
+      const endDate = document.getElementById('modal-end-date').value;
+      const reason = document.getElementById('modal-reason').value.trim();
+
+      try {
+        const res = await fetch(`${BASE_URL}/api/leave/apply`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            employee_id: empId,
+            leave_type: leaveType,
+            start_date: startDate,
+            end_date: endDate,
+            reason: reason,
+            days: 1
+          })
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || 'Submission failed');
+        }
+
+        const data = await res.json();
+        showToast(`✅ ${data.message}`);
+        closeLeaveModal();
+        loadEmployeeData(empId);
+        appendMessage('agent', `✅ **Leave Application Submitted**:\n• ID: #${data.application_id}\n• Type: ${data.leave_type}\n• Duration: ${startDate} to ${endDate}\n• Remaining Balance: ${data.remaining_balance} days`, "🗓️ Leave Application Agent (SQLite DB)");
+      } catch (err) {
+        showToast(`❌ ${err.message}`);
+      }
+    }
+
+    // Initialize
+    loadEmployeeData(currentEmpId);
+  </script>
+</body>
+</html>
